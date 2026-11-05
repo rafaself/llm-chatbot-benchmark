@@ -1,0 +1,8 @@
+{"item":{"input":"How many strings does a standard guitar usually have?","expected_answer":"A standard guitar usually has six strings.","expected_tool":"none","expected_category":"factual"}}
+{"item":{"input":"What does a metronome help a musician do?","expected_answer":"A metronome helps a musician keep a steady tempo.","expected_tool":"none","expected_category":"factual"}}
+{"item":{"input":"What's the weather like in Boston?","expected_answer":"It's sunny in Boston and 18 C.","expected_tool":"get_weather","expected_category":"tool_call"}}
+{"item":{"input":"Can you check order A100?","expected_answer":"Order A100 has been delivered.","expected_tool":"lookup_order","expected_category":"tool_call"}}
+{"item":{"input":"What's the status of order A200?","expected_answer":"Order A200 is in transit.","expected_tool":"lookup_order","expected_category":"tool_call"}}
+{"item":{"input":"Hi there!","expected_answer":"Hello! How can I help you today?","expected_tool":"none","expected_category":"no_tool"}}
+{"item":{"input":"Thanks for your help.","expected_answer":"You're welcome! Let me know if you need anything else.","expected_tool":"none","expected_category":"no_tool"}}
+{"item":{"input":"Can you check my order?","expected_answer":"Sure. What's your order ID?","expected_tool":"none","expected_category":"ambiguous"}}
