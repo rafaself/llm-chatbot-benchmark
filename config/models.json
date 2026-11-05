@@ -1,0 +1,109 @@
+{
+  "verified_on": "2026-11-04",
+  "models": {
+    "nova-micro": {
+      "name": "Amazon Nova Micro",
+      "model_id": "amazon.nova-micro-v1:0",
+      "invocation_id": "us.amazon.nova-micro-v1:0",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "nova-lite": {
+      "name": "Amazon Nova Lite",
+      "model_id": "amazon.nova-lite-v1:0",
+      "invocation_id": "us.amazon.nova-lite-v1:0",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "nemotron-nano": {
+      "name": "NVIDIA Nemotron Nano 3 30B",
+      "model_id": "nvidia.nemotron-nano-3-30b",
+      "invocation_id": "nvidia.nemotron-nano-3-30b",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "nemotron-super": {
+      "name": "NVIDIA Nemotron Super 3 120B",
+      "model_id": "nvidia.nemotron-super-3-120b",
+      "invocation_id": "nvidia.nemotron-super-3-120b",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "gpt-oss-20b": {
+      "name": "GPT-OSS 20B",
+      "model_id": "openai.gpt-oss-20b-1:0",
+      "invocation_id": "openai.gpt-oss-20b-1:0",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "gpt-oss-120b": {
+      "name": "GPT-OSS 120B",
+      "model_id": "openai.gpt-oss-120b-1:0",
+      "invocation_id": "openai.gpt-oss-120b-1:0",
+      "tool_support": "documented",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "qwen3-32b": {
+      "name": "Qwen3 32B",
+      "model_id": "qwen.qwen3-32b-v1:0",
+      "invocation_id": "qwen.qwen3-32b-v1:0",
+      "tool_support": "unverified_on_converse",
+      "parameters": {
+        "temperature": 0
+      }
+    },
+    "haiku-5.5": {
+      "name": "Claude Haiku 5.5",
+      "model_id": "anthropic.claude-haiku-5-5",
+      "invocation_id": "us.anthropic.claude-haiku-5-5",
+      "tool_support": "documented",
+      "parameters": {
+        "thinking": {
+          "type": "disabled"
+        }
+      }
+    },
+    "gpt-6-luna": {
+      "name": "GPT-6 Luna",
+      "model_id": "openai.gpt-6-luna",
+      "invocation_id": "us.openai.gpt-6-luna",
+      "tool_support": "documented",
+      "parameters": {}
+    },
+    "gpt-6.1-sol": {
+      "name": "GPT-6.1 Sol",
+      "model_id": "openai.gpt-6.1-sol",
+      "invocation_id": "us.openai.gpt-6.1-sol",
+      "tool_support": "documented",
+      "parameters": {}
+    }
+  },
+  "judge": {
+    "bedrock": {
+      "id": "bedrock:converse:us.openai.gpt-6.1-sol",
+      "config": {
+        "region": "us-east-1",
+        "maxTokens": 2048,
+        "showThinking": false
+      }
+    },
+    "openai": {
+      "id": "openai:responses:gpt-6.1-sol",
+      "config": {
+        "max_output_tokens": 2048
+      }
+    }
+  }
+}

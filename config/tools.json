@@ -1,0 +1,28 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_weather",
+      "description": "Look up current weather for a specified city. Ask for the city if missing.",
+      "parameters": {
+        "type": "object",
+        "properties": { "city": { "type": "string" } },
+        "required": ["city"],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "lookup_order",
+      "description": "Look up an order's current delivery status by its order ID. Ask for the ID if missing.",
+      "parameters": {
+        "type": "object",
+        "properties": { "order_id": { "type": "string" } },
+        "required": ["order_id"],
+        "additionalProperties": false
+      }
+    }
+  }
+]
