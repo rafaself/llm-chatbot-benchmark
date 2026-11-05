@@ -1,0 +1,12 @@
+{
+  "name": "llm-chatbot-benchmark",
+  "version": "0.1.0",
+  "private": true,
+  "engines": { "node": ">=22.22.0" },
+  "scripts": {
+    "test": "python -m unittest discover -s tests -v",
+    "smoke": "python -m benchmark.run --smoke",
+    "benchmark": "python -m benchmark.run"
+  },
+  "devDependencies": { "promptfoo": "0.125.1" }
+}
