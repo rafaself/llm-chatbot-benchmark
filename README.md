@@ -2,30 +2,33 @@
 
 A Python-first chatbot benchmark using **Promptfoo 0.125.1** as its evaluation engine. `promptfooconfig.yaml` owns the prompt, assertions, thresholds, and weights. Python validates datasets, prepares selected providers, records reproducibility metadata, and summarizes native results. A TypeScript bridge adds a bounded tool-result exchange around Promptfoo's native providers.
 
-The default run is **offline**. Fixture responses and a fixture judge verify plumbing; their passing scores are not evidence of model quality. Live validation requires explicit paid-run opt-in and authenticated provider access. No target model has been live-validated in this checkout yet.
+The default run is **offline**. Fixture responses and a fixture judge verify plumbing; their passing scores are not evidence of model quality. Live validation requires explicit paid-run opt-in and authenticated provider access. No target model has been live-validated in this checkout yet; live validation is deferred at the owner's request.
 
 ## Setup
 
-Use Python 3.11+ and Node.js 22.22+ (Node 24 LTS recommended). Dependencies are pinned; PyYAML is the only Python runtime dependency and parsing uses `safe_load`.
+Use Python 3.11+ and Node.js 22.22+. Dependencies are pinned; PyYAML is the only Python runtime dependency and parsing uses `safe_load`.
 
 ```sh
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-dev.txt
 npm ci
 npm test
+npm run check
 npm run smoke
 ```
 
 No credentials are needed for tests or smoke runs. The runner disables telemetry, update checks, sharing, and caching. It uses the installed CLI and never downloads a different version through `npx`.
 
+Local quality commands are `npm run format`, `npm run format:check`, `npm run lint`, and `npm run typecheck`. Ruff formats/lints Python, mypy checks Python in strict mode, Prettier formats TypeScript/configuration, ESLint lints TypeScript, and `tsc` checks it with strict settings. `npm run check` combines formatting, lint, strict types, and tests. CI is intentionally not configured yet. Runtime-only setup can install `requirements.txt` instead of the development requirements.
+
 ## Authentication and live runs
 
-Use the standard AWS SDK credential chain, preferably a dedicated profile permitted to invoke only the selected target and judge. Never store credentials in this repository. Cross-Region profiles need destination model permissions; service control policies and Marketplace access can independently block requests.
+Use the standard AWS SDK credential chain. The main setup uses a long-lived AWS access key stored by the AWS CLI in a dedicated profile permitted to invoke the selected target and judge. Never store credentials in this repository. Cross-Region profiles need destination model permissions; service control policies and Marketplace access can independently block requests.
 
 ```sh
-aws configure sso --profile benchmark
-aws sso login --profile benchmark
+# Enter the access key ID and secret access key in the AWS CLI prompts.
+aws configure --profile benchmark
 export AWS_PROFILE=benchmark
 export AWS_REGION=us-east-1
 aws sts get-caller-identity
@@ -40,6 +43,8 @@ python -m benchmark.run --live --allow-paid --models nova-micro
 python -m benchmark.run --live --allow-paid --models nova-micro nova-lite \
   --category factual --category tool_call --repeat 3 --max-requests 200
 ```
+
+SSO is also supported through the standard chain: use `aws configure sso --profile benchmark` and `aws sso login --profile benchmark` instead of the access-key setup. The benchmark does not implement or persist its own credentials.
 
 `--allow-paid` opts into that invocation, including **GPT-6.1 Sol grading**. Each answer gets two rubric grades. The adapter also requires the runner's `BENCHMARK_ALLOW_PAID=1` guard; credentials alone never enable paid calls. The default conservative request ceiling is 200, including retries. This is a request-count guard, not a dollar budget. Review prepared `config.yaml` and `metadata.json` before spending.
 
@@ -106,9 +111,16 @@ Rubric grades range from 0 to 1 and pass at 0.8. Equality scores 0 or 1. Overall
 
 Reports include model/category breakdowns, request success, API errors/timeouts, malformed responses, unsupported scenarios, end-to-end target latency and p50/p95, input/output/total tokens, and output tokens per target second when measurable. Target latency includes tool/provider overhead and excludes judge time; throughput is not a streaming decode rate. The small dataset's percentiles are descriptive, not production estimates.
 
-Provider token usage is measured when supplied. **Costs are estimates**, based on Promptfoo's pinned pricing tables, never billing records. Inference and grading costs are separate. Missing prices/usage stay `null` with coverage, never fabricated zero. Failed calls can be billed without returning usage, making known-cost subtotals incomplete. Average inference cost per successful evaluation needs sufficient cost coverage and a nonzero success count. Smoke fixtures provide no meaningful inference usage/cost or model-quality evidence, even if Promptfoo synthesizes zeros.
+Provider token usage is measured when supplied. **Costs are estimates**, based on Promptfoo's pinned pricing tables, never billing records. Inference and grading costs are separate. Missing prices/usage stay `null` with coverage, never fabricated zero. Failed calls can be billed without returning usage, making known-cost subtotals incomplete. Cost per successful evaluation is total inference spend, including failures, divided by fully successful evaluations; it requires complete cost coverage and a nonzero success count. Smoke fixtures provide no meaningful inference usage/cost or model-quality evidence, even if Promptfoo synthesizes zeros.
 
 Record a baseline before changing behavior and compare model/category metrics with identical cases, prompt, tools, criteria, judge, and parameters. Use repeats for variability. Add independent held-out cases before drawing model-selection conclusions; the initial sample is development-only. See [AGENTS.md](AGENTS.md) for the evaluation-driven workflow.
+
+```sh
+python -m benchmark.report results/NEW_RUN/result.json \
+  --baseline results/BASELINE_RUN/result.json
+```
+
+The comparison checks case selection, criteria, models, judge, and comparable parameters before reporting score deltas. Changes to prompts, tools, the adapter, or model-registry contents are recorded as candidate behavior changes. Incompatible criteria/selections and fixture model-quality comparisons are explicitly refused.
 
 ## Layout and integration references
 
@@ -124,3 +136,7 @@ results/              # Ignored timestamped runs
 ```
 
 The bridge uses two narrow, tested hooks in pinned Promptfoo Converse to preserve raw messages and configure HTTP timeouts. Revalidate them before upgrading. Official references: [configuration](https://www.promptfoo.dev/docs/configuration/reference/), [Python dataset generation](https://www.promptfoo.dev/docs/configuration/test-cases/#python), [Bedrock Converse](https://www.promptfoo.dev/docs/providers/aws-bedrock/#converse-api), and [rubric grading](https://www.promptfoo.dev/docs/configuration/expected-outputs/model-graded/llm-rubric/).
+
+## License
+
+[MIT](LICENSE).
