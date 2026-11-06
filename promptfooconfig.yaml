@@ -2,17 +2,15 @@ description: Chatbot benchmark — safe offline plumbing by default
 prompts:
   - file://prompts/chat.json
 providers:
-  - id: file://integrations/chatbot.ts
+  - id: file://src/chatbot.ts
     label: offline-fixture
     config:
       mode: smoke
-tests: file://benchmark/dataset.py:create_tests
+tests: file://src/dataset.ts
 defaultTest:
   options:
     provider:
-      id: file://integrations/chatbot.ts
-      config:
-        mode: smoke-judge
+      id: file://src/smoke.ts
   assert:
     - type: llm-rubric
       metric: answer_quality

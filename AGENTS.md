@@ -19,25 +19,25 @@ Use this repository's root `promptfooconfig.yaml` as the canonical chatbot evalu
 
 ## Running evaluations
 
-From the repository root, activate `.venv`, inspect the central config and provider list, and use the existing runner and criteria.
+From the repository root, inspect the central config and provider list, and use the TypeScript runner and existing Promptfoo criteria.
 
 ```sh
 git status --short
 npm run check
 npm run smoke
-python -m benchmark.run --live --models nova-micro --prepare-only
+npm run preview -- --models nova-micro
 ```
 
 Only run an evaluation that calls a paid external model when the user has explicitly opted into that run. A configured credential or a request to implement a change is not permission for paid calls. Once authorized, export a comparable result artifact:
 
 ```sh
-python -m benchmark.run --live --allow-paid --models nova-micro
-python -m benchmark.report results/NEW/result.json --baseline results/BASELINE/result.json
+npm run benchmark -- --live --allow-paid --models nova-micro
+# Open results/NEW/result.html and inspect results/NEW/result.json.
 ```
 
-Compare that artifact with the captured baseline using the same criteria and inspect category-level failures, not only the aggregate score. Keep generated outputs out of source control unless the repository explicitly versions evaluation artifacts.
+Compare runs using their native HTML/JSON exports and metadata. Check that cases, model, judge, criteria, and parameters match before comparing with a baseline. Inspect category-level failures, not only the aggregate score. Keep generated outputs out of source control unless the repository explicitly versions evaluation artifacts.
 
 ## Dependencies and security
 
-- Ask before adding a production dependency unless it is highly consolidated, safe, and trustworthy. Prefer the repository's existing Python tooling and evaluation setup.
+- Ask before adding a production dependency unless it is highly consolidated, safe, and trustworthy. Prefer the repository's existing TypeScript tooling, Promptfoo evaluation, and AI SDK provider/tool execution.
 - Do not introduce security vulnerabilities. Keep credentials out of configs, datasets, logs, and reports; load them through the existing secret mechanism. If a necessary change creates a security concern, warn the root user and explain the risk.

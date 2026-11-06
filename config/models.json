@@ -70,8 +70,14 @@
       "invocation_id": "us.anthropic.claude-haiku-5-5",
       "tool_support": "documented",
       "parameters": {
-        "thinking": {
-          "type": "disabled"
+        "providerOptions": {
+          "bedrock": {
+            "additionalModelRequestFields": {
+              "thinking": {
+                "type": "disabled"
+              }
+            }
+          }
         }
       }
     },
