@@ -30,7 +30,7 @@ export function splitPolicy(text: string) {
     const heading = /^###\s+(\d+\.\d+)\.\s+(.+)$/.exec(line);
     if (heading) {
       if (current) sections.push(current);
-      current = { id: heading[1], title: heading[2], content: line + '\n' };
+      current = { id: heading[1]!, title: heading[2]!, content: line + '\n' };
     } else if (current && !/^##\s/.test(line)) {
       current.content += line + '\n';
     } else if (current && /^##\s/.test(line)) {
