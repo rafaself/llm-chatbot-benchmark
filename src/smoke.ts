@@ -4,6 +4,7 @@ import { MockLanguageModelV3 } from 'ai/test';
 export function smokeModel() {
   return new MockLanguageModelV3({
     modelId: 'offline-fixture',
+
     doGenerate: async ({ prompt }) => {
       const user = prompt.findLast((message) => message.role === 'user');
       const input =
