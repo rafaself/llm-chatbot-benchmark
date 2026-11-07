@@ -96,7 +96,7 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     : { id: 'file://' + join(ROOT, 'src/smoke.ts') };
   if (options.live) {
     config.description =
-      'Live chatbot benchmark; two GPT-6.1 Sol rubric grades per answer';
+      'Live chatbot benchmark; three GPT-6.1 Sol rubric grades per answer';
     judge.config = {
       ...judge.config,
       ...(options.judgeProvider === 'bedrock'
