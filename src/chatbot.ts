@@ -4,7 +4,14 @@ import { generateText, modelMessageSchema, stepCountIs } from 'ai';
 import type { ProviderResponse } from 'promptfoo';
 import { z } from 'zod';
 import { smokeModel } from './smoke.ts';
-import { createTools, createTrace } from './tools.ts';
+import { createTools, createTrace, type ExecutionTrace } from './tools.ts';
+
+interface PriorCompletion {
+  metadata?: {
+    searches?: ExecutionTrace['searches'];
+    observations?: ExecutionTrace['observations'];
+  };
+}
 
 export interface ChatbotConfig {
   mode?: 'smoke' | 'live';
@@ -26,7 +33,10 @@ export default class ChatbotProvider {
     return this.config.model ?? 'offline-fixture';
   }
 
-  async callApi(prompt: string): Promise<ProviderResponse> {
+  async callApi(
+    prompt: string,
+    context?: { vars?: { _conversation?: PriorCompletion[] } },
+  ): Promise<ProviderResponse> {
     const config = this.config;
     const offline = config.mode === 'smoke';
     if (!offline && process.env.BENCHMARK_ALLOW_PAID !== '1') {
@@ -79,6 +89,10 @@ export default class ChatbotProvider {
         ...new Map(documents.map((doc) => [doc.id, doc])).values(),
       ];
       const retrievedSections = uniqueDocuments.map((doc) => doc.id);
+      const priorTurns = context?.vars?._conversation ?? [];
+      const priorDocuments = priorTurns.flatMap((turn) =>
+        (turn.metadata?.searches ?? []).flatMap((search) => search.documents),
+      );
       const groundingPayload = JSON.stringify({
         answer: result.text,
         policy_evidence: uniqueDocuments.map(({ id, title, content }) => ({
@@ -87,6 +101,12 @@ export default class ChatbotProvider {
           content,
         })),
         operational_evidence: trace.observations,
+        prior_policy_evidence: [
+          ...new Map(priorDocuments.map((doc) => [doc.id, doc])).values(),
+        ].map(({ id, title, content }) => ({ id, title, content })),
+        prior_operational_evidence: priorTurns.flatMap(
+          (turn) => turn.metadata?.observations ?? [],
+        ),
       });
       return {
         output: {

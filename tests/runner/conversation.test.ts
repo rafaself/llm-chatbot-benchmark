@@ -54,9 +54,9 @@ test(
       );
       const secondPrompt = rows[1]?.prompt?.raw ?? '';
       const thirdPrompt = rows[2]?.prompt?.raw ?? '';
-      assert.match(secondPrompt, /Confirmed order SON-1042\./);
+      assert.match(secondPrompt, /Order SON-1042 is processing\./);
       assert.match(thirdPrompt, /Order SON-1042 is processing\./);
-      assert.doesNotMatch(rows[0]?.prompt?.raw ?? '', /Confirmed order SON-1042\./);
+      assert.doesNotMatch(rows[0]?.prompt?.raw ?? '', /Order SON-1042 is processing\./);
     } finally {
       rmSync(directory, { recursive: true, force: true });
     }

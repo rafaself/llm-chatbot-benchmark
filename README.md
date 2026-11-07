@@ -11,8 +11,9 @@ runs multi-step model/tool exchanges.
 - Policy lookup, cross-section reasoning, conditional rules, calculations,
   operational tool calls, combined policy/database reasoning, clarifications,
   conversation history and robustness.
-- Answer correctness and completeness (LLM rubric), faithfulness to **retrieved**
-  documents and database results (LLM rubric), response directness (LLM rubric).
+- Answer correctness and completeness (LLM rubric), faithfulness to evidence
+  retrieved on this turn or an earlier turn (LLM rubric), and response
+  directness (LLM rubric). Tool and section checks stay on the current turn.
 - Deterministic tool name/argument validation and full required-section evidence
   coverage. Evidence recall measures what was **returned to the model**, not
   whether the model subsequently cited or used every passage.

@@ -32,7 +32,7 @@ export function smokeModel() {
         if (history.includes('ready for pickup notice')) {
           text =
             'Order SON-1042 is processing. Sonora holds a paid order for 7 consecutive days after the Ready for pickup notice, and the amount paid is not automatically forfeited.';
-        } else if (history.includes('son-1042') && history.includes('current status')) {
+        } else if (history.includes('son-1042')) {
           text = 'Order SON-1042 is processing.';
         } else {
           text =
@@ -48,11 +48,6 @@ export function smokeModel() {
           toolName: 'search_policy',
           input: JSON.stringify({ query: 'free economy shipping threshold 599' }),
         };
-      } else if (input.includes('current status') && history.includes('son-1042')) {
-        call = {
-          toolName: 'lookup_order',
-          input: JSON.stringify({ order_id: 'SON-1042' }),
-        };
       } else if (
         input.includes('ready for pickup notice') &&
         history.includes('processing')
@@ -63,8 +58,13 @@ export function smokeModel() {
             query: 'Ready for pickup notice 7 consecutive days',
           }),
         };
+      } else if (input.includes('repeat the order') && history.includes('processing')) {
+        text = 'Order SON-1042 is processing.';
       } else if (input.includes('son-1042')) {
-        text = 'Confirmed order SON-1042.';
+        call = {
+          toolName: 'lookup_order',
+          input: JSON.stringify({ order_id: 'SON-1042' }),
+        };
       }
       return {
         content: call
