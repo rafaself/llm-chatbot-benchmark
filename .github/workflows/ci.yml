@@ -18,16 +18,16 @@ jobs:
         with:
           node-version: "22.22.0"
           cache: npm
-      - name: Synchronize npm lockfile (one-time repair)
+      - run: npm ci
+      - name: Format code (one-time repair)
         run: |
-          npm install --package-lock-only --ignore-scripts --no-audit --no-fund
-          if ! git diff --quiet -- package-lock.json; then
+          npm run format
+          if ! git diff --quiet -- src tests/runner; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add package-lock.json
-            git commit -m "chore(deps): sync npm lockfile"
+            git add src tests/runner
+            git commit -m "style(eval): normalize benchmark formatting"
             git push origin "HEAD:${{ github.head_ref || github.ref_name }}"
           fi
-      - run: npm ci
       - run: npm run check
       - run: npm run smoke
