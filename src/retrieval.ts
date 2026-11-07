@@ -28,9 +28,9 @@ export function splitPolicy(text: string) {
   let current: { id: string; title: string; content: string } | undefined;
   for (const line of text.split(/\r?\n/)) {
     const heading = /^###\s+(\d+\.\d+)\.\s+(.+)$/.exec(line);
-    if (heading) {
+    if (heading?.[1] && heading[2]) {
       if (current) sections.push(current);
-      current = { id: heading[1]!, title: heading[2]!, content: line + '\n' };
+      current = { id: heading[1], title: heading[2], content: line + '\n' };
     } else if (current && !/^##\s/.test(line)) {
       current.content += line + '\n';
     } else if (current && /^##\s/.test(line)) {
