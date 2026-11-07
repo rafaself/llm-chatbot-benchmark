@@ -6,9 +6,10 @@ test('CLI preserves safe defaults and model selection options', () => {
   const options = parseOptions([], {});
   assert.equal(options.live, undefined);
   assert.equal(options.judgeProvider, 'bedrock');
-  assert.equal(options.maxRequests, 200);
+  assert.equal(options.maxRequests, 500);
   assert.equal(options.timeoutMs, 60_000);
   assert.equal(options.region, 'us-east-1');
+  assert.ok(options.dataset.endsWith('datasets/smoke.jsonl'));
 
   const live = parseOptions(
     [

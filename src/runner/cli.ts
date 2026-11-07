@@ -1,6 +1,6 @@
 import { Command, Option } from 'commander';
 import { z } from 'zod';
-import { sampleDataset } from '../dataset.ts';
+import { developmentDatasetPath, smokeDatasetPath } from '../dataset.ts';
 
 export interface RunnerOptions {
   smoke?: boolean;
@@ -46,7 +46,7 @@ function createProgram(region: string) {
     .option('--prepare-only', 'Write resolved config without API calls')
     .option('--models <keys...>', 'Keys from config/models.json')
     .option('--category <names...>', 'Select scenario categories')
-    .option('--dataset <path>', 'JSONL scenarios', sampleDataset)
+    .option('--dataset <path>', 'JSONL scenarios (live: development; offline: smoke)')
     .option('--output <path>', 'New result directory')
     .option('--region <region>', 'AWS source region', region)
     .addOption(
@@ -68,7 +68,7 @@ function createProgram(region: string) {
       '--max-requests <n>',
       'Conservative request ceiling including grading/retries',
       positive,
-      200,
+      500,
     )
     .option('--delay-ms <n>', 'Promptfoo delay between evaluations', nonnegative, 0);
 }
@@ -82,6 +82,7 @@ export function parseOptions(
   );
   program.parse(argv, { from: 'user' });
   const options = program.opts<RunnerOptions>();
+  options.dataset ??= options.live ? developmentDatasetPath : smokeDatasetPath;
   if (options.live && !options.prepareOnly && !options.allowPaid)
     throw new Error('Live calls require --allow-paid; use --prepare-only to preview.');
   if (options.allowPaid && !options.live)

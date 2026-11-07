@@ -21,7 +21,7 @@ test('smoke run preserves fixture providers and output files without invoking Pr
       join(directory, 'run'),
     );
     const prepared = prepareConfig(parsed);
-    assert.equal(prepared.tests.length, 8);
+    assert.equal(prepared.tests.length, 3);
     const smokeProviders = prepared.config.providers as unknown as Array<{
       label?: string;
       config?: { mode?: string };
@@ -31,13 +31,13 @@ test('smoke run preserves fixture providers and output files without invoking Pr
     assert.equal(prepared.judge.id, 'file://' + join(process.cwd(), 'src/smoke.ts'));
     const defaultTest = prepared.config.defaultTest;
     assert.ok(defaultTest && typeof defaultTest !== 'string');
-    assert.equal(defaultTest.assert?.length, 3);
+    assert.equal(defaultTest.assert?.length, 5);
     const metadata = createMetadata(parsed, prepared);
     assert.equal(executeRun(parsed, prepared, metadata), 0);
     const output = join(directory, 'run');
     const config = readFileSync(join(output, 'config.yaml'), 'utf8');
     assert.match(config, /offline-fixture/);
-    assert.match(config, /expected_category: factual/);
+    assert.match(config, /expected_category: clarification/);
     assert.equal(
       JSON.parse(readFileSync(join(output, 'metadata.json'), 'utf8')).evidence,
       'unexecuted',
@@ -58,7 +58,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
     'tool_call',
   );
   const prepared = prepareConfig(live);
-  assert.equal(prepared.tests.length, 3);
+  assert.equal(prepared.tests.length, 5);
   const liveProviders = prepared.config.providers as unknown as Array<{
     label?: string;
     config?: { model?: string };
@@ -72,7 +72,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
     ['us.amazon.nova-micro-v1:0', 'us.amazon.nova-lite-v1:0'],
   );
   assert.equal(prepared.judge.id, 'bedrock:converse:us.openai.gpt-6.1-sol');
-  assert.equal(prepared.plannedRequests, 30);
+  assert.equal(prepared.plannedRequests, 60);
 
   assert.throws(
     () => prepareConfig(options('--live', '--prepare-only', '--models', 'qwen3-32b')),

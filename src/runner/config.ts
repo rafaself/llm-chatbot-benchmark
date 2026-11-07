@@ -27,7 +27,7 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     tests.length *
     (options.live ? selected.length : 1) *
     options.repeat *
-    (options.maxTurns + 2) *
+    (options.maxTurns + 3) *
     (options.retries + 1);
   if (plannedRequests > options.maxRequests)
     throw new Error(
@@ -96,7 +96,7 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     : { id: 'file://' + join(ROOT, 'src/smoke.ts') };
   if (options.live) {
     config.description =
-      'Live chatbot benchmark; two GPT-6.1 Sol rubric grades per answer';
+      'Live chatbot benchmark; three GPT-6.1 Sol rubric grades per answer';
     judge.config = {
       ...judge.config,
       ...(options.judgeProvider === 'bedrock'
@@ -106,6 +106,20 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
   }
   if (!config.defaultTest || typeof config.defaultTest === 'string')
     throw new Error('Expected inline defaultTest criteria in promptfooconfig.yaml');
+  // A generated result directory is not the repository root: use absolute assertion scripts.
+  const defaultAssertions = config.defaultTest.assert ?? [];
+  config.defaultTest.assert = defaultAssertions.map((assertion) => {
+    if (
+      assertion.type !== 'javascript' ||
+      typeof assertion.value !== 'string' ||
+      !assertion.value.startsWith('file://src/')
+    )
+      return assertion;
+    return {
+      ...assertion,
+      value: 'file://' + join(ROOT, assertion.value.slice('file://'.length)),
+    };
+  });
   config.defaultTest = {
     ...config.defaultTest,
     options: { ...config.defaultTest.options, provider: judge },
