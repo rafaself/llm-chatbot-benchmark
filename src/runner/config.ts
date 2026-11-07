@@ -113,8 +113,12 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
       assertion.type !== 'javascript' ||
       typeof assertion.value !== 'string' ||
       !assertion.value.startsWith('file://src/')
-    ) return assertion;
-    return { ...assertion, value: 'file://' + join(ROOT, assertion.value.slice('file://'.length)) };
+    )
+      return assertion;
+    return {
+      ...assertion,
+      value: 'file://' + join(ROOT, assertion.value.slice('file://'.length)),
+    };
   });
   config.defaultTest = {
     ...config.defaultTest,

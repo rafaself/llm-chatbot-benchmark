@@ -1,6 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { loadDataset, developmentDatasetPath, smokeDatasetPath } from '../../src/dataset.ts';
+import {
+  loadDataset,
+  developmentDatasetPath,
+  smokeDatasetPath,
+} from '../../src/dataset.ts';
 import { policySectionIds, searchPolicy } from '../../src/retrieval.ts';
 
 test('golden dataset is valid and includes traceable policy references', () => {
@@ -16,6 +20,8 @@ test('golden dataset is valid and includes traceable policy references', () => {
 test('the deterministic policy index is non-empty and uses stable section IDs', () => {
   assert.ok(policySectionIds.has('7.5'));
   assert.ok(policySectionIds.has('16.6'));
-  assert.ok(searchPolicy('free economy shipping 599 threshold').some((d) => d.id === '7.5'));
+  assert.ok(
+    searchPolicy('free economy shipping 599 threshold').some((d) => d.id === '7.5'),
+  );
   assert.deepEqual(searchPolicy(''), []);
 });

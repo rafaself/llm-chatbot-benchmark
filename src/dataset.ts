@@ -5,18 +5,33 @@ import { policySectionIds } from './retrieval.ts';
 
 const toolExpectation = z.strictObject({
   name: z.enum(['search_policy', 'lookup_order', 'lookup_product']),
-  arguments: z.record(z.string(), z.union([z.string(), z.number(), z.boolean()])).optional(),
+  arguments: z
+    .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
+    .optional(),
 });
 const rowSchema = z.strictObject({
   item: z.strictObject({
     id: z.string().regex(/^SON-[A-Z]+-\d{3}$/),
     input: z.string().trim().min(1),
-    category: z.enum(['policy_lookup', 'multi_hop', 'conditional', 'calculation', 'tool_call', 'clarification', 'multi_turn', 'robustness']),
+    category: z.enum([
+      'policy_lookup',
+      'multi_hop',
+      'conditional',
+      'calculation',
+      'tool_call',
+      'clarification',
+      'multi_turn',
+      'robustness',
+    ]),
     difficulty: z.enum(['easy', 'medium', 'hard']),
-    messages: z.array(z.strictObject({
-      role: z.enum(['user', 'assistant']),
-      content: z.string().min(1),
-    })).default([]),
+    messages: z
+      .array(
+        z.strictObject({
+          role: z.enum(['user', 'assistant']),
+          content: z.string().min(1),
+        }),
+      )
+      .default([]),
     expected: z.strictObject({
       answer: z.string().trim().min(1),
       required_facts: z.array(z.string().trim().min(1)).min(1),
@@ -47,7 +62,8 @@ export function loadDataset(path = developmentDatasetPath, categories: string[] 
       if (seen.has(item.id)) throw new Error('Duplicate case ID: ' + item.id);
       seen.add(item.id);
       for (const section of item.retrieval.relevant_sections) {
-        if (!policySectionIds.has(section)) throw new Error('Unknown policy section: ' + section);
+        if (!policySectionIds.has(section))
+          throw new Error('Unknown policy section: ' + section);
       }
       // Gold labels remain in Promptfoo vars and NEVER enter the model prompt.
       return {
@@ -62,11 +78,19 @@ export function loadDataset(path = developmentDatasetPath, categories: string[] 
           relevant_sections: item.retrieval.relevant_sections,
           expected_category: item.category,
         },
-        metadata: { category: item.category, difficulty: item.difficulty, tags: item.tags, case_id: item.id },
+        metadata: {
+          category: item.category,
+          difficulty: item.difficulty,
+          tags: item.tags,
+          case_id: item.id,
+        },
       };
     } catch (error) {
       throw new Error(
-        'Dataset line ' + (index + 1) + ': ' + (error instanceof Error ? error.message : String(error)),
+        'Dataset line ' +
+          (index + 1) +
+          ': ' +
+          (error instanceof Error ? error.message : String(error)),
         { cause: error },
       );
     }
@@ -76,7 +100,9 @@ export function loadDataset(path = developmentDatasetPath, categories: string[] 
       throw new Error('Category not present in dataset: ' + category);
     }
   }
-  return cases.filter((c) => !categories.length || categories.includes(c.vars.expected_category));
+  return cases.filter(
+    (c) => !categories.length || categories.includes(c.vars.expected_category),
+  );
 }
 
 export default function createTests() {
