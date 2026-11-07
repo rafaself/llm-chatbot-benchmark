@@ -78,8 +78,9 @@ labels before using results for decisions.
 
 `datasets/context-session.jsonl` is the three-turn validation session
 `SON-CTX-001`: look up order `SON-1042`, repeat its recorded `processing`
-status, then give the Section 7.7 pickup hold. The same session is appended
-to `smoke.jsonl` for the offline wiring check.
+status, then give the Section 7.7 pickup hold and the consequence if the
+customer does not collect it. The same session is appended to `smoke.jsonl`
+for the offline wiring check.
 
 ## Category Guidance
 
