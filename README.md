@@ -1,112 +1,118 @@
-# LLM Chatbot Benchmark
+# Sonora End-to-End LLM Chatbot Benchmark
 
-Promptfoo evaluates answers and tool selection across Bedrock models. AI SDK
-handles model requests, tool validation/execution, and bounded multi-step calls.
-The project supplies the shared prompt, tools, model registry, and scenarios.
+Compare Bedrock language models **as complete customer-support agents**, with the
+same policy corpus, lexical document retrieval, read-only operational SQLite
+database, prompts, tool interfaces, grading judge and runtime constraints.
+Promptfoo measures final answers and the actual tool/retrieval trace; AI SDK
+runs multi-step model/tool exchanges.
 
-## Setup
+## What is measured
 
-Requires Node.js 22.22+; Python is not needed.
+- Policy lookup, cross-section reasoning, conditional rules, calculations,
+  operational tool calls, clarifications, conversation history and robustness.
+- Answer correctness and completeness (LLM rubric), faithfulness to **retrieved**
+  documents and database results (LLM rubric), response directness (LLM rubric).
+- Deterministic tool name/argument validation and full required-section evidence
+  coverage. Evidence recall measures what was **returned to the model**, not
+  whether the model subsequently cited or used every passage.
+- Latency, token usage and model steps in individual Promptfoo outputs.
+  No cost estimate is presented as a billing record.
+
+Policy: `datasets/sonora_store_policy.md`; fixed retrieval:
+`src/retrieval.ts` (section-based BM25 lexical baseline, no external embeddings);
+read-only customer-free tool outputs from
+`datasets/sonora_store_database.sqlite` (seed SQL also provided).
+The model chooses search queries and tool calls. The same retriever and data
+are used for all candidates. This is a benchmark of the **full agent system**,
+not an isolated language-model knowledge exam or a production-grade semantic RAG.
+
+## Golden evaluation dataset
+
+- `datasets/golden/development.jsonl` — 43 reviewed-source *draft* cases,
+  used for development and prompt iteration.
+- `datasets/golden/heldout.jsonl` — 8 additional cases reserved for
+  release-candidate verification; do not tune against their case-level failures.
+  As these cases live in a public repository, this is an organizational holdout,
+  **not a confidential blind test**.
+- `datasets/smoke.jsonl` — three offline fixture cases to verify plumbing.
+
+Each JSONL line has an `item` with stable `id`, `input`, `category`,
+`difficulty`, optional `messages`, an `expected` object with
+`answer`, `required_facts`, `forbidden_claims`, `tools`, and
+`retrieval.relevant_sections` with original policy subsection IDs.
+An optional `tags` array supports slice analysis. The loader validates
+IDs, categories, evidence references and duplicate case IDs. **Gold data is
+passed to Promptfoo's grader only, never to the model prompt.**
+
+The reference answers are preliminary editorial labels and should be
+reviewed by a second person before using benchmark results for decisions.
+
+## Run
+
+Requires Node.js 22.22+ and npm, with no separate Python installation.
 
 ```sh
 npm ci
 npm run check
 npm run smoke
-```
 
-`check` runs Prettier, ESLint, and strict TypeScript checks. `npm run format`
-applies formatting. There is no separate unit-test suite.
+# No paid requests: inspect the generated config and case/attempt ceiling.
+npm run preview -- --models nova-micro
 
-`smoke` uses AI SDK's mock model and a fixture judge. It exercises the same tool
-execution path and native Promptfoo assertions/exports without credentials or
-API calls. Passing smoke scores establish wiring only, never model quality.
-
-## Run
-
-Use an existing AWS CLI profile or another standard AWS credential-chain source:
-
-```sh
+# Opt-in paid run; model/judge request ceiling enforced.
 export AWS_PROFILE=benchmark
 export AWS_REGION=us-east-1
+npm run benchmark -- --live --allow-paid --models nova-micro
 
-# No API calls: inspect exact models, judge, criteria, and request ceiling.
-npm run preview -- --models nova-micro nova-lite
+# Compare two models (raise upper bound only if acceptable).
+npm run benchmark -- --live --allow-paid --models nova-micro nova-lite --max-requests 600
 
-# Paid: targets plus two GPT-6.1 Sol rubric grades per answer.
-npm run benchmark -- --live --allow-paid --models nova-micro nova-lite
+# Reserve the holdout for release-candidate checks.
+npm run preview -- --models nova-micro --dataset datasets/golden/heldout.jsonl
 ```
 
-For a new profile, use `aws configure --profile benchmark` or AWS SSO. Credentials
-stay outside this repository. Each paid invocation needs `--allow-paid`.
+Offline is the default and selects `datasets/smoke.jsonl`; live/preview
+select `datasets/golden/development.jsonl`, unless `--dataset` is explicit.
+The `--category` filter selects scenario categories.
+No real-model baseline was run as part of this dataset update.
 
-Defaults: Nova Micro, one repeat, concurrency 1, no retries, 1,024 output tokens,
-60-second target-step timeout, and at most three model steps. The default
-`--max-requests 200` is a conservative request ceiling including grading/retries,
-not a dollar budget. Model and judge calls go directly to their configured
-providers; Vercel hosting and AI Gateway are not involved.
+Each paid run requires `--live --allow-paid`. Defaults include max 3 model
+steps, one repetition, concurrency 1, no retries, max 1024 generated tokens,
+60-second per-step timeout, and conservative `--max-requests 500` upper
+bound counting up to three rubric judge calls per case. This is **not**
+a monetary cap. Inspect `config/models.json` and `docs/models.md` for
+model routes, judge configuration and caveats.
 
-```sh
-npm run benchmark -- --help
-npm run preview -- --models nova-micro --category tool_call
-npm run preview -- --models nova-micro --dataset datasets/sample.jsonl
-```
+## Scoring interpretation
 
-`--judge-provider openai` selects Promptfoo's native OpenAI judge and requires
-`OPENAI_API_KEY`. Otherwise grading uses native Promptfoo Bedrock. Exact model
-IDs and unverified tool routes are recorded in [docs/models.md](docs/models.md).
-`--allow-unverified-tools` explicitly enables a capability probe for Qwen.
-`--delay-ms` uses Promptfoo's delay between evaluations; it does not pace each
-SDK tool step or impose a global request rate.
+- End-to-end case success requires **all** assertions to pass. A strong
+  directness score cannot compensate for unsupported or incorrect facts.
+- Tool correctness checks required tool names and specified argument values;
+  duplicate calls of the same permitted tool are tracked but not automatically
+  a correctness failure. Extra *different* tool types fail.
+- Evidence coverage uses stable policy subsection IDs across all search calls.
+  It is strict when a case declares mandatory sections, and intentionally
+  separate from answer grading.
+- A missing document can be a retrieval failure; a correct document with an
+  incorrect answer can be an interpretation failure.
+- The offline mock judge always awards full rubric grades: smoke results
+  only demonstrate wiring, **never real model quality**.
 
-## Resources
+Each run creates immutable output under ignored `results/<timestamp>/`:
+Promptfoo JSON/HTML, resolved config, metadata/hashes, and diagnostics.
+The manifest hashes the selected dataset, policy file, operational SQLite
+database, prompt, scoring config, source code, model registry and dependencies.
+Keep the same revision, corpus, tools, model parameters and judge settings
+when comparing results.
 
-| File | Purpose |
-| --- | --- |
-| `promptfooconfig.yaml` | Canonical Promptfoo rubrics, weights, thresholds, and safe defaults |
-| `config/models.json` | Exact target IDs, model settings, and native judge providers |
-| `prompts/chat.json` | Shared system/user prompt |
-| `datasets/sample.jsonl` | Existing development scenarios; dataset design is deferred |
-| `src/tools.ts` | Tool schemas and deterministic local implementations |
-| `src/chatbot.ts` | Thin AI SDK adapter returning answers/tool calls to Promptfoo |
-| `src/smoke.ts` | SDK mock model and offline fixture judge |
-| `src/dataset.ts` | Zod validation and conversion of the existing JSONL format |
-| `src/run.ts` | CLI options, resolved config, run metadata, and Promptfoo invocation |
+## Safety and limitations
 
-Each JSONL line retains `{"item":{"input":"...","expected_answer":"...",
-"expected_tool":"none","expected_category":"factual"}}`. The loader validates
-schema and duplicate inputs before selection. Use another file with `--dataset`;
-keep held-out scenarios separate when preparing a real model comparison.
+The database contains fictitious information; operational tools return only
+non-PII order/product fields through parameterized read-only queries. Real
+deployments require authentication and authorization before exposing actual
+order status. No external network retrieval is performed by the lexical index.
+Search retrieval quality will limit end-to-end accuracy, especially for
+paraphrases; this is intentional and must be measured. The benchmark
+does not guarantee equivalent model-specific sampling or tool support.
 
-Tools return fixed scenario data: Boston is sunny at 18 C, order A100 is delivered,
-and A200 is in transit. AI SDK validates arguments and feeds tool results back to
-the model. Targets receive only the rendered conversation and tools, never the
-reference answers or grading criteria. All tool calls across all steps count,
-including duplicates/extras; malformed calls and unfinished responses fail.
-
-Scoring stays in Promptfoo: answer quality (50%), directness (20%), and exact tool
-selection (30%). Both rubric grades pass at 0.8; a case passes when all three
-assertions pass. No automatic tool-call repair is enabled.
-
-## Results
-
-Each run creates a new ignored `results/<timestamp>/` directory:
-
-- `result.html`: native Promptfoo report to inspect models and individual cases.
-- `result.json`: native scores, explanations, errors, SDK steps, calls, and usage.
-- `config.yaml`: resolved providers, scenarios, and criteria.
-- `metadata.json`: run dates, code revision/dirty state, source hashes, library
-  versions, selected models, judge, parameters, and process exit code.
-- `run.log`: Promptfoo diagnostics.
-
-Preview writes configuration/metadata only. Existing result directories are never
-overwritten. Failed runs preserve diagnostics and return a nonzero exit code.
-Artifacts may contain scenario/response content and should be shared accordingly.
-
-Compare models in one run where possible. Across runs, check matching cases,
-criteria, model/judge IDs, and parameters; inspect category-level failures too.
-AI SDK reports usage when available. Target pricing is not estimated here;
-missing costs are unknown. Judge cost estimates, if supplied by Promptfoo, are
-not billing records. No real-model baseline exists, and the migrated provider
-routes have not been live-validated.
-
-[MIT license](LICENSE).
+[MIT License](LICENSE).

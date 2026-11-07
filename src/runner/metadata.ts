@@ -51,6 +51,8 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     versions: { promptfoo: pkg.devDependencies.promptfoo, ...pkg.dependencies },
     source_hashes: {
       dataset: hash(readFileSync(resolve(options.dataset))),
+      policy: hash(readFileSync(join(ROOT, 'datasets/sonora_store_policy.md'))),
+      operational_database: hash(readFileSync(join(ROOT, 'datasets/sonora_store_database.sqlite'))),
       ...Object.fromEntries(
         sources.map((file) => [file, hash(readFileSync(join(ROOT, file)))]),
       ),
