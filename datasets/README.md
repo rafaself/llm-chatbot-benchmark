@@ -39,7 +39,7 @@ category names, stable IDs, and policy subsection references.
   "tags": [],
   "turns": [{
     "id": "SON-MHP-008-T01",
-    "input": "My order SON-1059 is ready for pickup. How long will Sonora hold it?",
+    "input": "My order SON-1059 is ready for pickup. How long will Sonora hold it, and can you give me the exact last day?",
     "expected": {
       "answer": "SON-1059 is ready for pickup. Sonora normally holds paid orders for 7 consecutive days after the pickup notice; the exact deadline depends on when the notice was sent.",
       "required_facts": ["ready for pickup", "7 consecutive days after notice", "deadline not derivable without notice timestamp"],

@@ -29,7 +29,9 @@ function toolSelection(output, context) {
   if (expected.length === 0) return success(true, 'No specific tool route required.');
   const actual = parsed.tool_calls;
   const allowed = new Set(expected.map((t) => t.name));
-  const unexpected = actual.filter((c) => !allowed.has(c.name));
+  // Policy search is graded by evidence recall. A required lookup may be
+  // accompanied by search_policy without becoming an unexpected tool.
+  const unexpected = actual.filter((c) => c.name !== 'search_policy' && !allowed.has(c.name));
   const missing = expected.filter((expectation) =>
     !actual.some((call) => {
       if (call.name !== expectation.name) return false;

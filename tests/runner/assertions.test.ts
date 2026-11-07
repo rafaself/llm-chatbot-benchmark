@@ -36,6 +36,30 @@ test('tool assertion checks names and exact required arguments', () => {
     ).pass,
     false,
   );
+  assert.equal(
+    assertions.toolSelection(
+      {
+        tool_calls: [
+          { name: 'lookup_order', args: { order_id: 'SON-1044' } },
+          { name: 'search_policy', args: { query: 'pickup hold' } },
+        ],
+      },
+      { vars },
+    ).pass,
+    true,
+  );
+  assert.equal(
+    assertions.toolSelection(
+      {
+        tool_calls: [
+          { name: 'lookup_order', args: { order_id: 'SON-1044' } },
+          { name: 'lookup_product', args: { sku: 'KEY-1' } },
+        ],
+      },
+      { vars },
+    ).pass,
+    false,
+  );
 });
 
 test('tool assertion does not require a route when no operational lookup is specified', () => {
