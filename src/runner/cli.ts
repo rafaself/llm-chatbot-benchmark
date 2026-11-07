@@ -60,7 +60,12 @@ function createProgram(region: string) {
       z.coerce.number().min(0).max(1).parse(value),
     )
     .option('--concurrency <n>', 'Concurrent Promptfoo evaluations', positive, 1)
-    .option('--repeat <n>', 'Repetitions per case', positive, 1)
+    .option(
+      '--repeat <n>',
+      'Repetitions per turn; conversation history requires 1',
+      positive,
+      1,
+    )
     .option('--retries <n>', 'SDK retries per request', nonnegative, 0)
     .option('--timeout-ms <n>', 'SDK timeout per target step', positive, 60000)
     .option('--max-turns <n>', 'Maximum AI SDK steps per answer', positive, 3)

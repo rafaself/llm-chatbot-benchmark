@@ -100,6 +100,8 @@ export default class ChatbotProvider {
           retrieved_documents: uniqueDocuments,
           grounding_payload: groundingPayload,
         },
+        // Promptfoo replays this text as the next turn's assistant message.
+        ...(result.text.trim() ? { conversationOutput: result.text } : {}),
         ...(!offline
           ? {
               tokenUsage: {

@@ -19,7 +19,7 @@ test('CLI preserves safe defaults and model selection options', () => {
       'nova-micro',
       'nova-lite',
       '--category',
-      'tool_call',
+      'operational_accuracy',
       '--repeat',
       '2',
       '--max-turns',
@@ -28,7 +28,7 @@ test('CLI preserves safe defaults and model selection options', () => {
     { AWS_REGION: 'eu-west-1' },
   );
   assert.deepEqual(live.models, ['nova-micro', 'nova-lite']);
-  assert.deepEqual(live.category, ['tool_call']);
+  assert.deepEqual(live.category, ['operational_accuracy']);
   assert.equal(live.region, 'eu-west-1');
   assert.equal(live.repeat, 2);
   assert.equal(live.maxTurns, 4);

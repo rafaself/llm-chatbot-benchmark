@@ -18,6 +18,11 @@ export interface PreparedRun {
 }
 
 export function prepareConfig(options: RunnerOptions): PreparedRun {
+  if (options.repeat !== 1) {
+    throw new Error(
+      'Conversation evals require --repeat 1; Promptfoo replays repeats into the same _conversation history.',
+    );
+  }
   const tests = loadDataset(options.dataset, options.category);
   const selected = options.models ?? ['nova-micro'];
   if (new Set(selected).size !== selected.length)
@@ -122,7 +127,11 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
   });
   config.defaultTest = {
     ...config.defaultTest,
-    options: { ...config.defaultTest.options, provider: judge },
+    options: {
+      ...config.defaultTest.options,
+      disableVarExpansion: true,
+      provider: judge,
+    },
   };
   config.evaluateOptions = {
     maxConcurrency: options.concurrency,
@@ -130,4 +139,8 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     delay: options.delayMs,
   };
   return { config, tests, selected, judge, plannedRequests };
+}
+
+export function sessionCount(tests: Array<{ metadata: { conversationId: string } }>) {
+  return new Set(tests.map((test) => test.metadata.conversationId)).size;
 }

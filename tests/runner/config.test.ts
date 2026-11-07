@@ -21,7 +21,7 @@ test('smoke run preserves fixture providers and output files without invoking Pr
       join(directory, 'run'),
     );
     const prepared = prepareConfig(parsed);
-    assert.equal(prepared.tests.length, 3);
+    assert.equal(prepared.tests.length, 6);
     const smokeProviders = prepared.config.providers as unknown as Array<{
       label?: string;
       config?: { mode?: string };
@@ -55,7 +55,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
     'nova-micro',
     'nova-lite',
     '--category',
-    'tool_call',
+    'operational_accuracy',
   );
   const prepared = prepareConfig(live);
   assert.equal(prepared.tests.length, 5);
@@ -97,6 +97,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
       ),
     /exceeds --max-requests/,
   );
+  assert.throws(() => prepareConfig(options('--smoke', '--repeat', '2')), /--repeat 1/);
 });
 
 test('run refuses to overwrite existing output directories', () => {

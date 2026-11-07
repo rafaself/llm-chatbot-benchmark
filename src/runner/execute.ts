@@ -1,9 +1,17 @@
-import { closeSync, mkdirSync, openSync, readFileSync, writeFileSync } from 'node:fs';
+import {
+  closeSync,
+  existsSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  writeFileSync,
+} from 'node:fs';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { dump } from 'js-yaml';
 import type { RunnerOptions } from './cli.ts';
-import { ROOT, type PreparedRun } from './config.ts';
+import { ROOT, sessionCount, type PreparedRun } from './config.ts';
+import { readEvalRows, scoreSessions } from './sessions.ts';
 
 export function executeRun(
   options: RunnerOptions,
@@ -20,10 +28,13 @@ export function executeRun(
     writeFileSync(join(output, name), JSON.stringify(value, null, 2) + '\n');
   writeFileSync(join(output, 'config.yaml'), dump(prepared.config));
   save('metadata.json', metadata);
+  const sessionsPrepared = sessionCount(prepared.tests);
   console.log(
     'Prepared ' +
       prepared.tests.length +
-      ' cases; ' +
+      (prepared.tests.length === 1 ? ' turn in ' : ' turns in ') +
+      sessionsPrepared +
+      (sessionsPrepared === 1 ? ' session; ' : ' sessions; ') +
       metadata.mode +
       '; request upper bound ' +
       prepared.plannedRequests +
@@ -64,13 +75,41 @@ export function executeRun(
     },
   );
   closeSync(log);
+  const resultPath = join(output, 'result.json');
+  const sessions = existsSync(resultPath)
+    ? scoreSessions(readEvalRows(JSON.parse(readFileSync(resultPath, 'utf8'))))
+    : [];
+  if (sessions.length) {
+    save('sessions.json', {
+      success: sessions.every((session) => session.success),
+      sessions,
+    });
+  }
+  const sessionFailed = sessions.some((session) => !session.success);
+  const processExitCode = result.status ?? 1;
   save('metadata.json', {
     ...metadata,
     finished_at: new Date().toISOString(),
-    process_exit_code: result.status,
+    process_exit_code: processExitCode,
     startup_error: result.error?.message,
+    ...(sessions.length
+      ? {
+          session_success: sessions.every((session) => session.success),
+          sessions,
+        }
+      : {}),
   });
   console.log(readFileSync(join(output, 'run.log'), 'utf8'));
+  if (sessions.length) {
+    console.log(
+      'Sessions: ' +
+        sessions.filter((session) => session.success).length +
+        '/' +
+        sessions.length +
+        ' passed.',
+    );
+  }
   if (result.error) throw result.error;
-  return result.status ?? 1;
+  if (processExitCode !== 0) return processExitCode;
+  return sessionFailed ? 1 : 0;
 }

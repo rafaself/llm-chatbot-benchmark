@@ -32,7 +32,7 @@ test('tool assertion checks names and exact required arguments', () => {
   assert.equal(
     assertions.toolSelection(
       { tool_calls: [{ name: 'search_policy', args: { query: 'order' } }] },
-      { vars: { expected_tools: [] } },
+      { vars },
     ).pass,
     false,
   );

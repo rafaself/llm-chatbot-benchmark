@@ -9,6 +9,8 @@ providers:
 tests: file://src/dataset.ts
 defaultTest:
   options:
+    # Gold lists are data, not Promptfoo scenario permutations.
+    disableVarExpansion: true
     provider:
       id: file://src/smoke.ts
   assert:

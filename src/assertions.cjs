@@ -1,4 +1,5 @@
-// Deterministic checks use Promptfoo test vars, never the target model's prompt.
+// Deterministic checks grade one conversation turn. Session success is the
+// conjunction of these turn results, calculated after the Promptfoo run.
 function success(pass, reason, score = pass ? 1 : 0) {
   return { pass, score, reason };
 }

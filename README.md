@@ -37,13 +37,17 @@ not an isolated language-model knowledge exam or a production-grade semantic RAG
   **not a confidential blind test**.
 - `datasets/smoke.jsonl` — three offline fixture cases to verify plumbing.
 
-Each JSONL line has an `item` with stable `id`, `input`, `category`,
-`difficulty`, optional `messages`, an `expected` object with
-`answer`, `required_facts`, `forbidden_claims`, `tools`, and
-`retrieval.relevant_sections` with original policy subsection IDs.
-An optional `tags` array supports slice analysis. The loader validates
-IDs, categories, evidence references and duplicate case IDs. **Gold data is
-passed to Promptfoo's grader only, never to the model prompt.**
+Each JSONL line is one session: stable `id`, `category`, `difficulty`,
+`capabilities`, optional `tags`, and ordered `turns`. Each turn has its own
+`input`, `expected` object (`answer`, `required_facts`, `forbidden_claims`,
+`tools`) and `retrieval.relevant_sections` with original policy subsection IDs.
+The loader expands a session into Promptfoo tests that share
+`metadata.conversationId`. Promptfoo scenario expansion is disabled so fact,
+claim and section lists stay intact. There is no scripted assistant history. Prior
+assistant text comes from the model's own `conversationOutput` through
+Promptfoo's `_conversation` variable. The loader validates IDs, categories,
+evidence references and duplicate session/turn IDs. **Gold data is passed to
+Promptfoo's grader only, never to the model prompt.**
 
 The reference answers are preliminary editorial labels and should be
 reviewed by a second person before using benchmark results for decisions.
@@ -83,16 +87,25 @@ The `--category` filter selects scenario categories.
 No real-model baseline was run as part of this dataset update.
 
 Each paid run requires `--live --allow-paid`. Defaults include max 3 model
-steps, one repetition, concurrency 1, no retries, max 1024 generated tokens,
-60-second per-step timeout, and conservative `--max-requests 500` upper
-bound counting up to three rubric judge calls per case. This is **not**
-a monetary cap. Inspect `config/models.json` and `docs/models.md` for
-model routes, judge configuration and caveats.
+steps per turn, concurrency 1, no retries, max 1024 generated tokens, and a
+60-second per-step timeout. `--repeat` must stay 1: Promptfoo stores
+`_conversation` by provider, prompt and `conversationId`, then runs every
+repeat of a turn before the next turn, so a second repeat would pollute the
+history. The conservative `--max-requests 500` upper bound counts graded
+turns, not sessions: `turns × models × (max model steps + 3 rubric calls) ×
+(retries + 1)`. This is **not** a monetary cap. A minimal three-turn
+context-and-tool session is `datasets/context-session.jsonl`. Inspect
+`config/models.json` and `docs/models.md` for model routes, judge
+configuration and caveats.
 
 ## Scoring interpretation
 
-- End-to-end case success requires **all** assertions to pass. A strong
-  directness score cannot compensate for unsupported or incorrect facts.
+- End-to-end turn success requires **all** assertions on that turn to pass.
+  A strong directness score cannot compensate for unsupported or incorrect
+  facts. Each turn is graded from its own tool trace and answer.
+- Session success requires every turn in the `conversationId` to be present
+  exactly once and to pass on its own. Turn scores are not averaged. The
+  runner writes `sessions.json` beside the Promptfoo output.
 - Tool correctness checks required tool names and specified argument values;
   duplicate calls of the same permitted tool are tracked but not automatically
   a correctness failure. Extra *different* tool types fail.

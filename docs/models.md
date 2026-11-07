@@ -1,6 +1,6 @@
 # Model compatibility snapshot
 
-Checked against official documentation on **2026-11-04**. Catalog support is not evidence that this account can invoke a model. No live target or judge calls have been executed for this checkout. Regions, inference profiles, subscriptions, IAM/SCP permissions, quotas, and lifecycle can change independently.
+Checked against official documentation on **2026-11-04**. Catalog support is not evidence that this account can invoke a model. On **2026-11-07** a three-turn GPT-6 Luna run (`us.openai.gpt-6-luna`, judge `bedrock:converse:us.openai.gpt-6.1-sol`, request ceiling 18) failed before any model response because the AWS credential chain had no access key. No other target was substituted. Regions, inference profiles, subscriptions, IAM/SCP permissions, quotas, and lifecycle can change independently.
 
 Targets now use AI SDK’s direct Bedrock Converse provider with the AWS credential chain; native Promptfoo providers perform grading. The catalog evidence below predates this adapter migration and does not verify SDK/account compatibility. The registry distinguishes base model identifiers from invocation profiles. The default source region is `us-east-1`; verify a different source region before changing it.
 
@@ -31,6 +31,9 @@ The default grading model is separately configured as `bedrock:converse:us.opena
 
 - All target IDs are configuration candidates, not executed compatibility claims.
   Exact account/model/SDK compatibility needs a separately authorized live run.
+  Multi-turn runs pass Promptfoo `_conversation` back as ordinary user and
+  assistant messages. The provider's `conversationOutput` is the model's answer
+  text; the structured tool and evidence payload stays on `output` for grading.
 - AI SDK owns Converse serialization, tool validation/execution, reasoning message
   replay, and retries. The benchmark no longer patches private Promptfoo hooks or
   manually replays tool exchanges. This removes the old parser-specific reasoning

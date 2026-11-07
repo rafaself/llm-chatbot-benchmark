@@ -4,7 +4,7 @@ import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import pkg from '../../package.json' with { type: 'json' };
 import type { RunnerOptions } from './cli.ts';
-import { ROOT, type PreparedRun } from './config.ts';
+import { ROOT, sessionCount, type PreparedRun } from './config.ts';
 
 export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
   const hash = (data: string | Buffer) =>
@@ -43,6 +43,7 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     providers: prepared.config.providers,
     judge: prepared.judge,
     case_count: prepared.tests.length,
+    session_count: sessionCount(prepared.tests),
     categories: [
       ...new Set(prepared.tests.map((test) => test.vars.expected_category)),
     ].sort(),
