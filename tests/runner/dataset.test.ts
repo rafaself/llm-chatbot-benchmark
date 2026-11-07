@@ -9,7 +9,7 @@ import { policySectionIds, searchPolicy } from '../../src/retrieval.ts';
 
 test('golden dataset is valid and includes traceable policy references', () => {
   const cases = loadDataset(developmentDatasetPath);
-  assert.equal(cases.length, 43);
+  assert.equal(cases.length, 47);
   assert.equal(new Set(cases.map((c) => c.vars.id)).size, cases.length);
   for (const c of cases) {
     for (const id of c.vars.relevant_sections) assert.ok(policySectionIds.has(id));

@@ -37,13 +37,16 @@ export function createTools(trace: ExecutionTrace) {
       execute: async ({ order_id }) => {
         const row = getDatabase()
           .prepare(
-            'SELECT order_id, order_status, estimated_delivery, tracking_code FROM orders WHERE order_id = ?',
+            'SELECT order_id, order_status, payment_status, sales_channel, fulfillment_method, estimated_delivery, tracking_code FROM orders WHERE order_id = ?',
           )
           .get(order_id);
         const result = row
           ? {
               order_id: String(row.order_id),
               status: String(row.order_status),
+              payment_status: String(row.payment_status),
+              sales_channel: String(row.sales_channel),
+              fulfillment_method: String(row.fulfillment_method),
               estimated_delivery: row.estimated_delivery,
               tracking_code: row.tracking_code,
             }

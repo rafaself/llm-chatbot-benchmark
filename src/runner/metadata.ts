@@ -20,6 +20,7 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     });
   const sources = [
     'promptfooconfig.yaml',
+    'src/assertions.cjs',
     'config/models.json',
     'prompts/chat.json',
     'package.json',

@@ -9,7 +9,8 @@ runs multi-step model/tool exchanges.
 ## What is measured
 
 - Policy lookup, cross-section reasoning, conditional rules, calculations,
-  operational tool calls, clarifications, conversation history and robustness.
+  operational tool calls, combined policy/database reasoning, clarifications,
+  conversation history and robustness.
 - Answer correctness and completeness (LLM rubric), faithfulness to **retrieved**
   documents and database results (LLM rubric), response directness (LLM rubric).
 - Deterministic tool name/argument validation and full required-section evidence
@@ -28,7 +29,7 @@ not an isolated language-model knowledge exam or a production-grade semantic RAG
 
 ## Golden evaluation dataset
 
-- `datasets/golden/development.jsonl` — 43 reviewed-source *draft* cases,
+- `datasets/golden/development.jsonl` — 47 reviewed-source *draft* cases,
   used for development and prompt iteration.
 - `datasets/golden/heldout.jsonl` — 8 additional cases reserved for
   release-candidate verification; do not tune against their case-level failures.
