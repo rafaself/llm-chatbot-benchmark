@@ -38,6 +38,16 @@ test('tool assertion checks names and exact required arguments', () => {
   );
 });
 
+test('tool assertion does not require a route when no operational lookup is specified', () => {
+  assert.equal(
+    assertions.toolSelection(
+      { tool_calls: [{ name: 'search_policy', args: { query: 'returns' } }] },
+      { vars: { expected_tools: [] } },
+    ).pass,
+    true,
+  );
+});
+
 test('evidence recall requires all relevant sections', () => {
   const vars = { relevant_sections: ['6.5', '7.5'] };
   assert.equal(

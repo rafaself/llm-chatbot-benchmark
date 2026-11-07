@@ -14,16 +14,15 @@ const rowSchema = z.strictObject({
     id: z.string().regex(/^SON-[A-Z]+-\d{3}$/),
     input: z.string().trim().min(1),
     category: z.enum([
-      'policy_lookup',
-      'policy_multi_hop',
-      'cross_source',
-      'conditional',
-      'calculation',
-      'tool_call',
-      'clarification',
-      'multi_turn',
+      'policy_accuracy',
+      'cross_source_accuracy',
+      'calculation_accuracy',
+      'operational_accuracy',
+      'clarification_quality',
+      'conversation_context',
       'robustness',
     ]),
+    capabilities: z.array(z.string().regex(/^[a-z][a-z0-9_]*$/)).min(1),
     difficulty: z.enum(['easy', 'medium', 'hard']),
     messages: z
       .array(
@@ -81,6 +80,7 @@ export function loadDataset(path = developmentDatasetPath, categories: string[] 
         },
         metadata: {
           category: item.category,
+          capabilities: item.capabilities,
           difficulty: item.difficulty,
           tags: item.tags,
           case_id: item.id,

@@ -23,6 +23,9 @@ function toolSelection(output, context) {
     return success(false, 'Provider output must contain a JSON tool_calls array.');
   }
   const expected = context.vars.expected_tools ?? [];
+  // Tool strategy is unconstrained unless a case marks an operational result
+  // as requiring a specific lookup. Policy support is checked via evidence recall.
+  if (expected.length === 0) return success(true, 'No specific tool route required.');
   const actual = parsed.tool_calls;
   const allowed = new Set(expected.map((t) => t.name));
   const unexpected = actual.filter((c) => !allowed.has(c.name));
