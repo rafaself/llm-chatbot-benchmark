@@ -9,7 +9,7 @@ test('CLI preserves safe defaults and model selection options', () => {
   assert.equal(options.maxRequests, 500);
   assert.equal(options.timeoutMs, 60_000);
   assert.equal(options.region, 'us-east-1');
-  assert.match(options.dataset, /datasets\\/smoke\\.jsonl$/);
+  assert.ok(options.dataset.endsWith('datasets/smoke.jsonl'));
 
   const live = parseOptions(
     [
