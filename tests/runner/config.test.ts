@@ -31,7 +31,7 @@ test('smoke run preserves fixture providers and output files without invoking Pr
     assert.equal(prepared.judge.id, 'file://' + join(process.cwd(), 'src/smoke.ts'));
     const defaultTest = prepared.config.defaultTest;
     assert.ok(defaultTest && typeof defaultTest !== 'string');
-    assert.equal(defaultTest.assert?.length, 3);
+    assert.equal(defaultTest.assert?.length, 5);
     const metadata = createMetadata(parsed, prepared);
     assert.equal(executeRun(parsed, prepared, metadata), 0);
     const output = join(directory, 'run');
@@ -58,7 +58,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
     'tool_call',
   );
   const prepared = prepareConfig(live);
-  assert.equal(prepared.tests.length, 3);
+  assert.equal(prepared.tests.length, 5);
   const liveProviders = prepared.config.providers as unknown as Array<{
     label?: string;
     config?: { model?: string };

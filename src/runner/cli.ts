@@ -68,7 +68,7 @@ function createProgram(region: string) {
       '--max-requests <n>',
       'Conservative request ceiling including grading/retries',
       positive,
-      200,
+      500,
     )
     .option('--delay-ms <n>', 'Promptfoo delay between evaluations', nonnegative, 0);
 }
