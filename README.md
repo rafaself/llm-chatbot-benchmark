@@ -69,9 +69,8 @@ npm run smoke
 # No paid requests: inspect the generated config and case/attempt ceiling.
 npm run preview -- --models nova-micro
 
-# Opt-in paid run; model/judge request ceiling enforced.
-export AWS_PROFILE=benchmark
-export AWS_REGION=us-east-1
+# Opt-in paid run. Put Bedrock keys in .env (see .env.example). The runner loads
+# that file; shell variables take precedence. Model and judge both use Bedrock.
 npm run benchmark -- --live --allow-paid --models nova-micro
 
 # Compare two models (raise upper bound only if acceptable).
