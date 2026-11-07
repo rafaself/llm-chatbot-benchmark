@@ -29,9 +29,9 @@ not an isolated language-model knowledge exam or a production-grade semantic RAG
 
 ## Golden evaluation dataset
 
-- `datasets/golden/development.jsonl` — 47 reviewed-source *draft* cases,
+- `datasets/golden/development.jsonl` — 55 reviewed-source *draft* cases,
   used for development and prompt iteration.
-- `datasets/golden/heldout.jsonl` — 8 additional cases reserved for
+- `datasets/golden/heldout.jsonl` — 9 additional cases reserved for
   release-candidate verification; do not tune against their case-level failures.
   As these cases live in a public repository, this is an organizational holdout,
   **not a confidential blind test**.
@@ -47,6 +47,11 @@ passed to Promptfoo's grader only, never to the model prompt.**
 
 The reference answers are preliminary editorial labels and should be
 reviewed by a second person before using benchmark results for decisions.
+
+The `policy_multi_hop` category combines multiple policy sections. The
+`cross_source` category requires both a read-only operational lookup and policy
+evidence, so results can distinguish policy reasoning from policy-plus-database
+workflows.
 
 ## Run
 

@@ -15,7 +15,8 @@ const rowSchema = z.strictObject({
     input: z.string().trim().min(1),
     category: z.enum([
       'policy_lookup',
-      'multi_hop',
+      'policy_multi_hop',
+      'cross_source',
       'conditional',
       'calculation',
       'tool_call',
