@@ -6,6 +6,12 @@ Compare language models as complete customer-support agents, not as answer
 generators alone. Every candidate works with the same fictional Sonora store
 policy, product and order data, tools, and evaluation settings.
 
+---
+
+**Latest winner:** GPT 6 Luna
+
+---
+
 ## How it works
 
 - A deterministic BM25 retriever searches the fixed policy corpus.
