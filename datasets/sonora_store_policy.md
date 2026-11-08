@@ -324,7 +324,7 @@ A promotional price applies to the items, quantities, and terms of the campaign.
 
 Coupons may be percentage-based, fixed-value, or shipping-related. As a general rule, **1 coupon per order** is allowed. A fixed-value coupon is limited to the subtotal of eligible products and never generates a cash balance. Percentage coupons apply only to participating products, after automatic price discounts already applied, when the campaign allows that combination.
 
-By default, **product discount coupons cannot be combined with promotional discounts on the same item, the Sonora Transfer discount, or points redemption**. If a campaign specifically allows stacking, the exception will be stated in its offer details and in the payment summary. The system will show the effective result before purchase completion; consumers do not need to infer the order in which discounts apply.
+By default, the one product discount coupon allowed on an order cannot be combined with promotional discounts on the same item, the Sonora Transfer discount, or points redemption. A campaign may allow that coupon to be combined with those other benefits. The exception must be stated in the offer details and in the payment summary. It does not allow a second coupon on the same order. The system will show the effective result before purchase completion; consumers do not need to infer the order in which discounts apply.
 
 ### 8.4. Shipping Benefits and Restrictions
 
@@ -836,7 +836,7 @@ If a partial return involves an incorrect or defective item, the store is respon
 
 ### 16.5. Order with a Coupon and Points Redemption
 
-A product discount coupon and Harmonia+ points redemption are incompatible by default in the same order. Checkout must allow the customer to choose which benefit applies, without silently combining them. Stacking is permitted only if a specific, valid campaign expressly authorizes it.
+A product discount coupon and Harmonia+ points redemption are incompatible by default in the same order. Checkout must allow the customer to choose which benefit applies, without silently combining them. A campaign may expressly authorize stacking that one coupon with points. That authorization does not allow a second coupon on the order.
 
 Points may be earned on eligible promotional products based on the amount actually paid, but **redemption** is restricted to regular-priced products and the terms in Section 14.4. The mere presence of a sale-priced product in an order does not prevent redemption on other eligible regular-priced items.
 

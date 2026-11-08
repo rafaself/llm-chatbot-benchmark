@@ -70,11 +70,12 @@ conclusion made the model skip the section and fail groundedness.
 
 **Answer shape.** The assistant answers what was asked. When the general rule
 is known but whether it applies depends on facts the customer has not given, it
-states the rule and asks for those facts. It keeps every deciding condition in
-the retrieved text, including who must act. It does not narrate the search or
-mention these instructions. It cites only section IDs that appear in tool
-results. An earlier "one qualification" shape dropped required questions and
-named parties on the same Luna run.
+states the rule and asks for every such fact, including any fact that starts a
+deadline. If the retrieved text does not list those facts, it uses one remaining
+tool step to search for the conditions that decide it, then asks. It keeps
+every deciding condition in the retrieved text, including who must act. It does
+not narrate the search or mention these instructions. It cites only section IDs
+that appear in tool results.
 
 **Customer-supplied figures.** The groundedness rubric in `promptfooconfig.yaml`
 treats a number, date, or quantity stated in the question as a scenario input.

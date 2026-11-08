@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import {
   loadDataset,
@@ -7,7 +8,7 @@ import {
   heldoutDatasetPath,
   smokeDatasetPath,
 } from '../../src/dataset.ts';
-import { policySectionIds, searchPolicy } from '../../src/retrieval.ts';
+import { policyPath, policySectionIds, searchPolicy } from '../../src/retrieval.ts';
 
 function sessionIds(cases: ReturnType<typeof loadDataset>) {
   return new Set(cases.map((testCase) => testCase.metadata.conversationId));
@@ -60,6 +61,30 @@ test('category filters select primary objectives, not capabilities or tags', () 
   const selected = loadDataset(developmentDatasetPath, ['cross_source_accuracy']);
   assert.ok(selected.length > 0);
   assert.ok(selected.every((c) => c.metadata.category === 'cross_source_accuracy'));
+});
+
+test('the three previously failing labels match the policy text', () => {
+  const turns = loadDataset(developmentDatasetPath);
+  const withdrawal = turns.find((turn) => turn.vars.id === 'SON-MHP-009-T01');
+  assert.ok(withdrawal);
+  assert.deepEqual(withdrawal.vars.relevant_sections, ['9.2']);
+  assert.deepEqual(withdrawal.vars.required_facts, [
+    'order in transit',
+    'shipment does not automatically remove withdrawal right',
+  ]);
+  const policy = readFileSync(policyPath, 'utf8');
+  const coupon = policy.slice(policy.indexOf('### 8.3.'), policy.indexOf('### 8.4.'));
+  assert.match(coupon, /1 coupon per order/);
+  assert.match(coupon, /does not allow a second coupon/);
+  const points = policy.slice(policy.indexOf('### 16.5.'), policy.indexOf('### 16.6.'));
+  assert.match(points, /stacking that one coupon with points/);
+  assert.match(points, /does not allow a second coupon/);
+  const prompt = readFileSync(
+    new URL('../../prompts/chat.json', import.meta.url),
+    'utf8',
+  );
+  assert.match(prompt, /ask for every such fact/);
+  assert.doesNotMatch(prompt, /ask one concise question/);
 });
 
 test('the deterministic policy index is non-empty and uses stable section IDs', () => {
