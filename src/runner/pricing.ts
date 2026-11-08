@@ -301,23 +301,3 @@ export function summarizeCosts(
     unpriced_turns: turns.length - priced.length,
   };
 }
-
-export function formatCostSummary(summary: CostSummary) {
-  if (summary.price_usd.total === null)
-    return 'Price estimate unavailable for this run.';
-  const money = (value: number | null) =>
-    value === null ? 'unknown' : '$' + value.toFixed(value >= 0.01 ? 4 : 6);
-  return (
-    'Price estimate ' +
-    money(summary.price_usd.total) +
-    ' (assistant ' +
-    money(summary.price_usd.assistant) +
-    ', judge ' +
-    money(summary.price_usd.judge) +
-    '; mean ' +
-    money(summary.price_usd.per_turn_mean) +
-    ' per turn). Published list rates checked ' +
-    summary.checked_on +
-    '. Not an invoice.'
-  );
-}

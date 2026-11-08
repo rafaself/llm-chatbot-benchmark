@@ -11,7 +11,12 @@ import { spawnSync } from 'node:child_process';
 import { dump } from 'js-yaml';
 import type { RunnerOptions } from './cli.ts';
 import { ROOT, sessionCount, type PreparedRun } from './config.ts';
-import { formatCostSummary, summarizeCosts } from './pricing.ts';
+import { summarizeCosts } from './pricing.ts';
+import {
+  durationFromPromptfooResult,
+  renderBenchmarkConsoleReport,
+  renderBenchmarkReport,
+} from './report.ts';
 import { readEvalRows, scoreSessions } from './sessions.ts';
 
 export function executeRun(
@@ -105,16 +110,15 @@ export function executeRun(
       : {}),
   });
   console.log(readFileSync(join(output, 'run.log'), 'utf8'));
-  if (sessions.length) {
-    console.log(
-      'Sessions: ' +
-        sessions.filter((session) => session.success).length +
-        '/' +
-        sessions.length +
-        ' passed.',
-    );
+  if (summary) {
+    const report = renderBenchmarkReport({
+      summary,
+      sessions,
+      durationMs: durationFromPromptfooResult(parsed),
+    });
+    writeFileSync(join(output, 'stats.md'), report);
+    console.log(renderBenchmarkConsoleReport(report));
   }
-  if (summary) console.log(formatCostSummary(summary));
   if (result.error) throw result.error;
   if (processExitCode !== 0) return processExitCode;
   return sessionFailed ? 1 : 0;

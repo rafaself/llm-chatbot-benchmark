@@ -121,9 +121,9 @@ configuration and caveats.
 
 Each run creates immutable output under ignored `results/<timestamp>/`:
 Promptfoo JSON/HTML, resolved config, metadata/hashes, `stats.json`, and
-diagnostics. `stats.json` adds latency percentiles, tokens, price per turn,
-category totals, and a repeat estimate from the published rates in
-`config/prices.json`. That estimate is not a billing record.
+diagnostics. `stats.md` is the human-readable report: success, latency,
+tokens, estimated cost, and category totals taken from `stats.json` and
+`sessions.json`. That estimate is not a billing record.
 The manifest hashes the selected dataset, policy file, operational SQLite
 database, prompt, scoring config, source code, model registry and dependencies.
 Keep the same revision, corpus, tools, model parameters and judge settings
