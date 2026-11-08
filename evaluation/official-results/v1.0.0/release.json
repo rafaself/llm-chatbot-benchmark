@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "benchmark": {
+    "id": "sonora-customer-support-e2e",
+    "version": "1.0.0"
+  },
+  "release_tag": "sonora-benchmark-v1.0.0",
+  "run": {
+    "id": "2026-11-08T16-31-21.751Z",
+    "source_directory": "evaluation/results/2026-11-08T16-31-21.751Z",
+    "started_at": "2026-11-08T16:31:21.736Z",
+    "finished_at": "2026-11-08T18:04:07.275Z",
+    "mode": "live",
+    "git_revision": "ee0d561c47c5bb1247d38df22982e3738ca3348c",
+    "git_dirty": false
+  },
+  "evaluation": {
+    "dataset": "evaluation/datasets/golden/development.jsonl",
+    "dataset_sha256": "b1d1887eb287643d025cd51fef82bc05b31d416c764873858f25db64aba3dea2",
+    "selected_cases_sha256": "a5ccf51272f388fd842956499fb2b24837312a68cfb091ae5d52b897dc52d11e",
+    "case_count": 58,
+    "sessions_per_model": 55,
+    "models": [
+      "nova-micro",
+      "nova-lite",
+      "nemotron-nano",
+      "nemotron-super",
+      "gpt-oss-20b",
+      "gpt-oss-120b",
+      "qwen3-32b",
+      "haiku-5.5",
+      "gpt-6-luna",
+      "gpt-6.1-sol"
+    ],
+    "judge": "bedrock:converse:us.openai.gpt-6.1-sol",
+    "parameters": {
+      "region": "us-east-1",
+      "max_tokens": 1024,
+      "concurrency": 1,
+      "repeat": 1,
+      "retries": 0,
+      "timeout_ms": 60000,
+      "max_turns": 3,
+      "max_requests": 4060
+    },
+    "tool_versions": {
+      "promptfoo": "0.125.1",
+      "@ai-sdk/amazon-bedrock": "4.0.210",
+      "ai": "6.0.323"
+    }
+  },
+  "results": {
+    "turns": {
+      "pass": 307,
+      "fail": 271,
+      "errors": 2,
+      "total": 580
+    },
+    "model_sessions": {
+      "pass": 293,
+      "fail": 255,
+      "errors": 2,
+      "total": 550
+    },
+    "estimated_cost_usd": {
+      "models": 0.995455,
+      "judge": 2.873686,
+      "total": 3.869141
+    },
+    "wall_clock_ms": 5562418,
+    "billing_record": false
+  },
+  "artifact_manifest": "SHA256SUMS",
+  "notes": [
+    "This official snapshot preserves the complete run artifacts as copied from the ignored timestamped output.",
+    "The development dataset is not a held-out release check.",
+    "gpt-6.1-sol was both a candidate model and the evaluation judge.",
+    "Cost values are estimates, not billing records."
+  ]
+}

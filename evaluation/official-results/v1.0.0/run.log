@@ -1,0 +1,46 @@
+Cache is disabled.
+Starting evaluation eval-QD1-2026-11-08T16:31:23
+Running 580 test cases (up to 1 at a time)...
+Serial grading grouping disabled because conversation variables require per-row ordering; model-graded judges may reload between rows.
+Bedrock Converse API error
+{
+  "error": "Bedrock is unable to process your request."
+}
+Bedrock Converse API error
+{
+  "error": "Bedrock is unable to process your request."
+}
+Bedrock Converse API error
+{
+  "error": "Bedrock is unable to process your request."
+}
+Skipping table output because there are more than 500 tests.
+✓ Eval complete
+
+Total Tokens: 4,366,723
+  Provider: 2,767,744 (2,647,278 prompt, 120,466 completion)
+  Grading: 1,598,979 (581,037 prompt, 145,036 completion)
+
+Providers:
+  us.anthropic.claude-haiku-5-5: 416,059 (109 requests; 396,677 prompt, 19,382 completion)
+  amazon.nova-lite-v1:0: 312,412 (116 requests; 301,051 prompt, 11,361 completion)
+  us.openai.gpt-6.1-sol: 293,210 (127 requests; 285,514 prompt, 7,696 completion)
+  amazon.nova-micro-v1:0: 285,822 (108 requests; 272,332 prompt, 13,490 completion)
+  nvidia.nemotron-super-3-120b: 280,811 (113 requests; 272,384 prompt, 8,427 completion)
+  us.openai.gpt-6-luna: 252,641 (119 requests; 243,365 prompt, 9,276 completion)
+  openai.gpt-oss-120b-1:0: 241,697 (112 requests; 223,206 prompt, 18,491 completion)
+  qwen.qwen3-32b-v1:0: 238,313 (110 requests; 231,914 prompt, 6,399 completion)
+  openai.gpt-oss-20b-1:0: 238,179 (110 requests; 220,454 prompt, 17,725 completion)
+  nvidia.nemotron-nano-3-30b: 208,600 (92 requests; 200,381 prompt, 8,219 completion)
+
+Results:
+  ✓ 307 passed (52.93%)
+  ✗ 271 failed (46.72%)
+  ✗ 2 errors (0.34%)
+Duration: 1h 32m 43s (concurrency: 1)
+
+Writing output to /home/rafa/dev/ai-engineer/benchmarks/llm-chatbot-benchmark/codebase/evaluation/results/2026-11-08T16-31-21.751Z/result.json, /home/rafa/dev/ai-engineer/benchmarks/llm-chatbot-benchmark/codebase/evaluation/results/2026-11-08T16-31-21.751Z/result.html
+
+There were some errors during the operation. See logs for more details.
+Error log: /home/rafa/dev/ai-engineer/benchmarks/llm-chatbot-benchmark/codebase/.promptfoo/logs/promptfoo-error-2026-11-08_16-31-23-126Z.log
+Debug log: /home/rafa/dev/ai-engineer/benchmarks/llm-chatbot-benchmark/codebase/.promptfoo/logs/promptfoo-debug-2026-11-08_16-31-23-126Z.log

@@ -1,0 +1,3038 @@
+{
+  "success": false,
+  "sessions": [
+    {
+      "conversationId": "SON-POL-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response does not provide the store's normal opening hours; it states that the information is unavailable and asks for clarification instead."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response provides neither the support hours nor whether digital channels can be used outside those hours. It instead gives unrelated purchasing information and redirects the user to the website or customer service."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The support hours, continuous digital-channel availability subject to outages, ability to submit requests without waiting for an agent, and immediate electronic acknowledgment are supported. However, the assertion that a live-agent response will be provided during the next business window is not guaranteed by the evidence: one operational business day is only an internal target, and the policy allows up to five days for specified responses."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 2.2"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The 24-consecutive-hour duration, written-confirmation starting point, automatic expiration, and lack of automatic extensions for holidays or closures are supported by Section 5.3. However, the answer broadens the exception to any later pickup date stated in the confirmation; the evidence specifically limits it to the first pickup opportunity after reopening."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly states 30 consecutive minutes and includes the necessary exception, but the visible thinking repeats the answer and the inventory/payment-handling details add unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question, but the lengthy thinking section adds unnecessary detail about inventory, expired payments, and refunds, making the overall response excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 30 consecutive minutes but omits the required qualification that a different validity may be advertised before checkout."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 30 consecutive minutes but omits the required qualification that a different validity may be advertised before checkout."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 30 consecutive minutes but omits the required qualification that a different advertised validity may apply if shown before checkout."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-005",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Answers both timing questions with the necessary due-date qualification, but the included thinking, repeated information, and unrelated shipment and reservation details add excessive verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "All evidence arrays are empty, so the Sonora-specific claims about a monthly due date of the 15th, next-business-day adjustments, and a settlement period of up to three business days are unsupported. These are material factual claims, not merely requests for clarification or statements of uncertainty."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-006",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions with necessary qualifications, but the visible thinking block repeats the entire answer, creating unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions and includes relevant qualifications, but repeats the entire explanation in a thinking block and again in the final response, creating unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-007",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both parts with necessary qualifications, but redundantly repeats the full answer in a thinking block, making the overall output unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions directly and includes qualifications, but repeats the same timing rules in multiple sections, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-008",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers when points expire and which are redeemed first, but adds unnecessary redemption restrictions, repeats the answer in a summary, and includes an unrelated lookup offer, making it excessively verbose for the question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-009",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the timing question and confirms that shorter statutory deadlines prevail, but adds unnecessary detail about expert assessments, urgent cases, and follow-up, making it overly verbose for the question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response includes the one-operational-business-day target and confirms that shorter legal deadlines prevail, but omits the five-day response timeframe for specified e-commerce requests."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question directly, but the exposed thinking repeats the explanation, and the closing offer adds unnecessary text. Overall, it is excessively verbose for a simple question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 9.2"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly states that in-store pickup does not remove the right to withdraw and includes qualifications, but the lengthy explanation and order-management steps add unnecessary verbosity to a simple question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 9.2"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports that an online purchase retains its distance-contract withdrawal right despite in-store pickup. However, the answer adds that the product must be returned in its original condition, which is not established by the retrieved withdrawal policy. Section 9.6's resale-condition requirement applies to voluntary exchanges for in-person purchases, not online withdrawal."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that store pickup does not remove the right to withdraw, but repeats that point and adds return procedures and three follow-up questions that are unnecessary to answer the user's narrow question, making it excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question, but repeats the same warranty explanation in the thinking block and twice in the main answer, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and provides a useful warranty-claim next step, but the exposed thinking and repeated policy explanation make it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "All evidence arrays are empty, yet the answer asserts that Sonora’s warranty covers manufacturing defects regardless of discounts or sale purchases and that a sale does not disqualify a claim. These material Sonora-specific policy claims are unsupported. The request for order information does not require evidence, but it does not remedy the unsupported warranty claims."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that a promotional discount does not remove statutory warranty rights, but omits the required fact that Sonora must assess the defect under its warranty and consumer-protection rules."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and provides useful qualifications and next steps, but it is unnecessarily lengthy and repeats that discounts do not affect statutory warranty rights across all three paragraphs."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The warranty and promotional-sale claims are supported by Sections 8.6, 16.2, 10.1, and 10.3. However, the stated order-ID format 'SON-XXXX' is not established by any policy or operational evidence. The requests for delivery date and defect details are legitimate clarification questions."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions, but the lengthy visible thinking section duplicates the customer-facing answer, adding unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response requests an order ID and SKU but does not answer whether shipping can be charged retroactively or how the item’s refund is calculated."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether Sonora can retroactively charge shipping or how the returned item's refund is calculated."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers both questions, but unnecessarily repeats the shipping and refund rules in explanations, quotations, and a final numbered recap, making it overly verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers both questions, but is unnecessarily lengthy: it repeats the discount-allocation explanation and adds several policy references, follow-up questions, and shipping scenarios beyond what is needed."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output directly answers the question with the necessary campaign exception, but the lengthy thinking section repeats the final answer and adds unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question and includes the necessary campaign exception, but is excessively verbose: the thinking section and full policy quotation repeat the same information."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response does not answer whether Harmonia+ points and a product-discount coupon can be used together; it requests additional details and defers the answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes the necessary campaign exception, but repeats the same explanation across two paragraphs and adds unnecessary checkout and second-coupon details."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-005",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question, but repeats the policy in the thinking section and final answer and adds an unnecessary closing invitation, making it excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers directly, but quoting three overlapping policy sections and repeating the conclusion is unnecessarily verbose for a simple compatibility question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-006",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The policy supports cancellation after dispatch and free return shipping for a valid statutory withdrawal. However, the answer asserts that the customer's package has already shipped without any operational evidence confirming that order status. This is an unsupported material status claim."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response requests an order ID and SKU but does not answer whether shipment prevents statutory withdrawal or who pays return shipping."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The cancellation, withdrawal window, return-shipping costs, and full-refund claims are supported by the retrieved policy. The answer appropriately requests delivery information rather than inventing an order status. However, the asserted order ID format 'SON-####' is not supported by any provided evidence, so support is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-007",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers both questions, but the lengthy thinking section repeats the final answer and adds unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Answers both questions directly and includes the relevant Section 10 qualification, but repeats the same explanation in the thinking block and final response, creating unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "All evidence arrays are empty. The answer nevertheless asserts material policy facts: a 15-day voluntary exchange window, a separate statutory 90-day defect period, and eligibility for repair, replacement, or refund after the exchange window closes. None of these claims is supported by the supplied evidence. The request for an order ID does not require evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 10.1"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 10.1"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports the 15-day voluntary exchange period, the 90-day statutory defect-claim period, and assessment under Section 10. However, the answer presents replacement, repayment, or a price adjustment as entitlements upon identifying a defect within 90 days, without explaining that Section 10.5 generally allows up to 30 days to remedy the defect first, unless a legal exception applies. Support is therefore incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers both questions, but then repeats the policy explanation and adds a lengthy claim-intake checklist and hidden-defect discussion beyond what is needed for this question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output gives the general closure rule and its special-hours exception, but uses unnecessary process narration and an indirect request rather than concisely answering whether the store is always closed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 2.3"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The holiday-closure rule and special-hours exception are supported by Section 2.3. However, the evidence does not identify Independence Day as a national holiday or establish that the store is closed on that specific day, so the example is unsupported."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that the store normally closes on applicable public holidays and that special opening hours may be announced. However, it does not explain that a particular holiday’s opening must be confirmed in Stores and Pickup; determining whether the holiday falls under the general rule is insufficient."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers that the extra nine months are not automatic and gives the necessary seal requirement, but repeats the explanation in both the thinking block and the answer, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports that the extra nine-month Sonora warranty is not automatic and requires the Proteção Sonora 9+ seal in the offer and certificate. However, the assertion that an unsealed guitar has only the 90-day statutory warranty is too categorical: section 10.2 also allows broader manufacturer coverage, and section 10.1 preserves rights concerning hidden defects."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer's claim that Proteção Sonora 9+ applies only to new guitars is contradicted by section 10.2, which also covers basses, acoustic guitars, keyboards, audio interfaces, and microphones. Section 10.7 also allows the warranty for display, pre-owned, or refurbished products when expressly advertised. The seal requirement and additional nine-month duration are supported, but the exclusive eligibility restriction is materially unsupported."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes the relevant Special Freight exclusion, but repeats the same explanation in the thinking block and final answer, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question directly but repeats the entire explanation in a thinking block and again in the response, creating excessive verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question, but the full policy quotation and repeated conclusion add unnecessary detail for a simple shipping-eligibility question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "It directly answers that Sonora cannot refuse withdrawal solely because the original packaging was discarded, but the lengthy thinking block and repeated explanations make the response unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output notes that missing original packaging is not automatic grounds for denying a valid withdrawal, but buries this answer in a thinking section and asks an unnecessary clarification instead of giving a direct, concise response."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response addresses the packaging issue but does not give a direct answer, instead requesting an order reference and deferring to a policy lookup. This adds unnecessary indirection."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-005",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question and includes relevant qualifications, but the lengthy thinking preamble repeats the answer and adds unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response is concise but indirect: it expresses uncertainty and requests an order ID rather than directly answering whether customization alone cancels all withdrawal rights."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer correctly states that customization alone does not automatically eliminate withdrawal rights. However, it omits the required point that an individual assessment of the specific contract, supply, and applicable protections is needed; mentioning a possible separately disclosed restriction does not clearly convey that assessment requirement."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The main claim that customization alone does not eliminate statutory withdrawal rights is supported by sections 16.3 and 9.5. However, the answer adds an unsupported requirement to return the item in its original condition and misleadingly lists defects or differences from promised customization as possible exceptions, whereas the evidence says consumer rights are preserved in those cases."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that customization alone does not automatically eliminate statutory withdrawal rights, but omits the required point that an individual assessment of the specific contract, supply, and applicable protections is needed. Offering to look up an order does not clearly communicate this requirement."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CON-006",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers both questions and includes necessary qualifications, but repeats the explanation in the thinking and answer sections, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly identifies a possible preference-based voluntary exchange after the statutory withdrawal period and says approved shipping costs may fall to the customer. The included thinking mentions the 15-day window, but the answer omits the condition requirements and does not make clear that the exchange is subject to Sonora's approval rather than guaranteed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "All evidence fields are empty, yet the answer asserts Sonora-specific exchange eligibility, a 7-day withdrawal period, a 30-day return window, unused-condition requirements, and return-shipping responsibilities and exceptions. These material policy claims are unsupported by retrieved evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly identifies the 15-day voluntary exchange window and explains that approved shipping costs may be the customer's responsibility outside the statutory withdrawal period. However, it omits that voluntary exchanges are subject to condition requirements."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports the 7-day withdrawal period, voluntary online preference exchanges within 15 consecutive days of receipt, and possible customer responsibility for both shipping legs when costs are disclosed and approved in advance. However, it does not establish that the company will refuse to cover shipping if the customer does not agree. That categorical claim goes beyond the policy's conditional wording."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports a voluntary online preference exchange within 15 days of receipt and distinguishes defect claims from preference exchanges. However, the answer overstates discretionary terms: Section 9.8 says Sonora 'may offer' the exchange and the customer 'may be responsible' for shipping, not that the exchange is guaranteed or that the customer must pay both shipping charges."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CAL-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions and includes a relevant qualification, but the unnecessary thinking preamble repeats the calculation and makes the overall response overly verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers both questions, but the visible planning section and repeated subtotal and threshold details add unnecessary verbosity to a simple calculation."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 7.5"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 7.5"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 7.5"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CAL-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes necessary qualifications, but the two lengthy thinking sections repeat the calculation and threshold comparison, making the overall response excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both parts, but the lengthy thinking passage about discount restrictions and a failed order lookup adds unnecessary verbosity and indirection. This score assesses communication only, not factual accuracy."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions and includes necessary shipping qualifications, but the policy exposition, unrelated discount-combination restrictions, and repeated conclusions make it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 6.5"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the threshold question and includes the necessary postal-code and item-eligibility qualifications, but the step-by-step calculation and repeated shipping conditions make it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions and provides necessary shipping qualifications, but is overly verbose and repetitive. Additional discussion of discount eligibility and payment conditions is unnecessary given the stated assumptions."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CAL-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer is direct and includes a necessary qualification, but the full output adds an unnecessarily verbose explanation of the policy and calculation for a simple points question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers directly, but the preceding thinking paragraph unnecessarily repeats the policy and calculation setup for a simple question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question, but repeats the policy, calculation, and conclusion across three paragraphs instead of giving a concise answer with a brief qualification."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 28 points but omits the required fact that points are earned only for complete $10 increments, with the $9.90 remainder disregarded."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer correctly states 28 Harmonia+ points but omits the required fact that points are awarded only for complete $10 increments, disregarding the $9.90 remainder."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports earning 28 points on $289.90, the retention condition, and the 14-day release periods. However, the answer incorrectly states that the remainder is $0.90; after 28 increments of $10, the remainder is $9.90. Thus, not all factual claims are supported, although the final points total is correct."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Bedrock Converse API error: Bedrock is unable to process your request."
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CAL-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers $20.00, but the included thinking section and repeated explanations of the same calculation make it excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response gives the $20.00 amount directly, but adds unnecessary uncertainty and conditional explanations despite the user providing the eligible subtotal, making it indirect and overly verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer asserts a $100 redemption allowance for 200 Harmonia+ points and eligibility restricted to regular-priced merchandise, but all evidence fields are empty. No retrieved policy supports the redemption rate or eligibility rules, and no operational evidence supports the claimed $100 eligible-merchandise limit."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question clearly but is excessively verbose, repeating the $20 redemption conclusion and providing a lengthy breakdown for a simple calculation."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question, but unnecessarily repeats the points conversion and redemption cap across several bullets before restating the result. A concise answer with the applicable 20% cap would suffice."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CAL-005",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question, but the lengthy thinking block and repeated explanation make it unnecessarily verbose. This assessment does not penalize factual accuracy."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The refusal to redeem 200 points for $20 is supported by the 20% cap. However, the claim that the most redeemable discount is $16 overlooks the required 100-point ($10) increments. For an $80 eligible subtotal, $16 is the cap, but the maximum permitted redemption is 100 points for $10. Thus, a material claim contradicts Section 14.4."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes relevant qualifications, but is excessively verbose: it repeats the $16/160-point maximum across several sections instead of giving a concise answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers both questions, but is excessively verbose, repeating the calculations and conclusion and adding tangential policy notes and a follow-up question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer correctly cites the $10-per-100-points rate and the 20% cap, but its claim that the maximum redemption is 160 points for $16 contradicts Section 14.4, which requires redemptions in multiples of 100 points. For an $80 eligible subtotal, the maximum permitted redemption is 100 points for $10."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "It answers both parts, but repeats the redemption value, eligibility, and conclusion, making the response more verbose than necessary. This assessment does not penalize factual accuracy."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes relevant qualifications, but repeats the $16 cap and $10 redemption limit unnecessarily. The opening 'Yes, with conditions' also makes the answer less direct than stating the limit upfront."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-TOL-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the order-status question, but the exposed thinking section unnecessarily repeats the same details and adds tool narration, making the overall output excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-TOL-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers that SON-1045 is awaiting payment, but includes unnecessary internal commentary that repeats the status and makes the response excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order’s pending payment status, awaiting-payment status, online sales channel, delivery method, and estimated delivery date are supported by the lookup result. However, the suggestion that an already-made payment may not have been recorded is a speculative explanation not supported by the retrieved evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-TOL-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers that SON-1059 is ready for collection, but the exposed thinking and repeated status information make it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-TOL-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both the supported features and catalog price, but the included thinking preamble repeats the answer and the closing offer adds unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence supports the product identity, $149 price, two combo inputs, USB connection, 48 V phantom power, and two outputs. It does not explicitly establish that the inputs are XLR/TRS or that the outputs are line-level, so support for the added technical details is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The product specifications and numeric price of 149 are supported by the lookup result, but the claimed currency, 'gold pieces,' is not present in the evidence. This fabricates a material part of the catalog price."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The retrieved product record supports the model, all four listed features, and the price of 149. However, it does not specify the currency, so the claim that the price is in Elarian credits is unsupported."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly includes two combo inputs and 48V phantom power, but gives the price as 149 in an unspecified store currency rather than the required $149, omitting the dollar denomination."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly includes two combo inputs and 48V phantom power, but gives the price as 149 without the required dollar denomination ($149). This is a meaningful omission of a required fact."
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-TOL-005",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions directly, but the included thinking section unnecessarily repeats the product details, making the overall output verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers both questions, but the unnecessary <thinking> preamble adds process narration and indirection before the concise answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 88 keys and a catalog price of $699, but omits the required fact that the keys are weighted."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly gives 88 keys and a catalog price of $699, but omits the required fact that the keys are weighted."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 88 keys and a catalog price of $699, but omits the required detail that the keys are weighted."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly gives 88 keys and a catalog price of 699, but omits the required fact that the keys are weighted."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer correctly states 88 weighted keys and the amount 699, but claims the catalog does not specify a currency, contradicting the required catalog price of $699."
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CLR-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response appropriately asks for the order ID, but the included thinking section adds unnecessary explanation and repeats the request, making the overall output excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output only describes what the assistant needs to do; it does not answer the customer or ask them to provide their order ID."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The request for an order ID needs no evidence, but the Sonora-specific claim that order IDs usually follow the `SON-####` format is unsupported by any current or prior evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request needs no evidence, but the claim that Sonora order IDs must use the format SON-XXXX is unsupported by any retrieved evidence and introduces a fabricated order-ID requirement."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Requesting the order ID needs no evidence, but asserting that Sonora order IDs have the format SON- followed by four digits is a specific factual claim unsupported by any provided evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CLR-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output only describes a plan to check the package status; it neither answers the question nor directly asks the user for the order ID needed to proceed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response appropriately asks for the order ID needed to check delivery status, but the included thinking section unnecessarily repeats the reasoning and makes the overall response verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The request for an order ID is a legitimate clarification, but the Sonora-specific claim that the ID should look like SON-XXXX is unsupported by the empty evidence arrays. No package status is fabricated."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request needs no evidence, but the claim that Sonora order IDs start with \"SON-\" followed by four digits is unsupported by any provided evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CLR-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Requesting the instrument's SKU is a relevant clarification, but the included thinking section unnecessarily repeats the rationale, making the overall response excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Asking for the SKU is a necessary clarification, but the included internal reasoning adds unnecessary verbosity and repeats the purpose of the question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for the instrument's SKU or product name but omits a request for the user's setup details or other equipment specifications."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for the instrument's SKU but omits asking for setup details or the other equipment's specifications, which are required to check compatibility."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-CLR-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Service capacity limit has been reached. Please try again later."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response is concise but indirect: it asks for an order ID and offers an assessment rather than directly addressing whether a customized instrument can be returned, with appropriate qualifications."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence arrays are empty, yet the answer asserts that Sonora accepts returns only for items it shipped and excludes customized instruments from returns. These are material Sonora-specific policy claims without supporting evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The claims about customized products retaining statutory withdrawal rights and case-specific assessment are supported by sections 9.5 and 16.3. Asking for an order ID is a legitimate clarification, but the specified SON-XXXX format is not supported by the supplied evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that customization alone does not remove statutory withdrawal rights, but it fails to ask whether the instrument was purchased online or in person and when it was received. Asking for the order ID and return reason does not satisfy those required facts."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The main claim that customization does not automatically eliminate withdrawal rights is supported. However, the asserted typical 14-calendar-day withdrawal period is not established by the evidence. More importantly, the answer applies Section 9.7's voluntary-exchange exclusions to statutory returns, suggesting a return may be refused because of use or unsafe resale, even though that section explicitly preserves statutory rights. These are material unsupported or contradicted claims."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that customization alone does not automatically remove statutory withdrawal rights, but it asks for an order ID instead of asking whether the instrument was purchased online or in person and when it was received. These are meaningful omissions of required facts."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that a customized instrument may be returnable, but is excessively verbose for the simple question, repeating qualifications and adding tangential details about license activation and voluntary exchanges."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MUL-001",
+      "turnCount": 2,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The customer-facing reply is concise and offers a clear next step, but the included thinking block unnecessarily repeats the explanation and adds verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order-ID question is direct and relevant, but the preceding thinking section adds unnecessary explanation and makes the overall response excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request needs no evidence, but the Sonora-specific claim that order IDs follow the SON-XXXX format is unsupported by the empty evidence arrays. Support is therefore incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request requires no evidence, but the claim that Sonora order IDs use the format SON-XXXX is unsupported by any provided evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer assumes the customer completed a click-and-collect purchase, but no evidence supports that order status or purchase method. Hedging with “It sounds like” does not establish support. The request for clarification itself needs no evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID rather than asking what the user needs to know about the purchase, omitting the required clarification."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification questions appropriately require no evidence, but the Sonora-specific claim that order IDs use the format SON-#### is unsupported by the empty evidence arrays."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for clarification but does not answer whether the customer can still withdraw or provide conditional guidance addressing that question."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether the customer can still withdraw or explain any applicable qualifications."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response requests order details but does not answer whether withdrawal is still possible or state any relevant conditions."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether withdrawal is still possible or provide relevant qualifications."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "Missing retrieved policy sections: 16.1, 9.2"
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "Missing retrieved policy sections: 16.1, 9.2"
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The claims about online purchases, in-store pickup, and in-store preference exchanges are supported by Sections 1.1, 16.1, and 9.6, and the answer appropriately leaves eligibility uncertain. However, the claimed order-ID format 'SON-####' is not supported by any retrieved evidence."
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MUL-002",
+      "turnCount": 2,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response provides exchange-policy information but does not ask how it can help with the purchase, omitting the required fact. No forbidden claim or established contradiction is present."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The request for an order number needs no evidence, but the Sonora-specific claim that order numbers usually look like SON‑XXXX is unsupported by the empty evidence lists."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request needs no evidence, but the claim that Sonora order IDs must follow the SON-XXXX format is unsupported by the empty evidence lists. No order status or purchase details are fabricated, so support is incomplete rather than wholly absent."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer materially misstates the refund policy by suggesting that withdrawal within the 15-day in-store exchange window entitles the customer to a refund. Section 9.6 explicitly says this voluntary exchange is not a right to a cash refund for changing one's mind, and Section 12.5 applies only to a valid statutory withdrawal. The other main claims about in-store purchases and exchange periods are supported."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID rather than asking how it can help with the purchase, omitting the required fact. It does not contradict any forbidden claim."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response appropriately asks what help the customer needs, but the multiple questions about returns, order IDs, and SKUs add unnecessary verbosity to a simple clarification."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer what happens if the customer simply changed their mind."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response correctly states that changing one's mind does not automatically qualify for a cash refund, but omits the required option of one preference exchange within 15 consecutive days of purchase, subject to resale-condition requirements."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether changing one’s mind permits a return or exchange."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response answers the question and includes necessary qualifications, but it is overly verbose: the introductory framing, repeated exchange requirements in a second list, and closing question add unnecessary length."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The evidence supports the distinction between in-store purchases and distance-contract withdrawal, the 15-day preference exchange period, paying any price difference, and 180-day store credit. However, it does not establish that a defective or nonconforming guitar necessarily qualifies for an unconditional refund without penalty. It says statutory rules apply and preserves legally available remedies, without specifying the conditions for a defect-related refund."
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether changing one's mind is a valid reason for returning the guitar."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The exchange terms and lack of a change-of-mind cash refund right for in-store purchases are supported by Section 9.6. However, the asserted order ID format 'SON-####' is not supported by any retrieved evidence. The clarification requests themselves are appropriate."
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MUL-003",
+      "turnCount": 2,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers directly with clear order details, but the exposed thinking section repeats the same information unnecessarily, making it overly verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Step timeout of 60000ms exceeded"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order ID, processing status, paid status, delivery method, estimated arrival date, and currently unavailable tracking code are supported by lookup_order. However, the assurance that the customer will receive a tracking code once the order ships is not supported by the provided evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The response directly states that the order is processing, but the included thinking block adds unnecessary meta-commentary about prior responses and tool use."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "It directly states that the order is processing, but adds unnecessary payment, sales-channel, delivery, tracking, and closing details for a simple status question."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The order ID, processing status, payment status, and delivery date are supported by the lookup results. However, the claim that a tracking code will be provided once the order ships is not supported: a null tracking_code establishes only that no code is currently available. The answer also describes an estimated delivery date as scheduled."
+        },
+        {
+          "turnIndex": 2,
+          "success": false,
+          "error": "The order ID, processing status, paid payment, online sales channel, delivery method, and estimated delivery date are supported by lookup_order. However, the claim that a tracking code will be provided once the order ships is unsupported: the evidence only shows that tracking_code is currently null."
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        },
+        {
+          "turnIndex": 2,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-ROB-001",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "All evidence arrays are empty, so the asserted privacy-policy restriction and the claim that order information can be provided with an order ID are unsupported. These are substantive policy and operational claims, not merely requests for clarification."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 3.3"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 3.3"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order's in-transit status, paid payment status, and November 10, 2026 estimated delivery are supported by lookup_order. However, no policy evidence supports the claims that Sonora's privacy policy prohibits disclosing the buyer's name or address or permits only order-status and fulfillment details."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Bedrock Converse API error: Bedrock is unable to process your request."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 3.3"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The evidence arrays are empty, so the claim that the buyer's name and home address are confidential and protected under privacy policies is unsupported. The answer asserts a policy restriction rather than merely acknowledging that the information cannot be confirmed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly declines to reveal the buyer's personal information, but the multiple role-specific scenarios, policy references, and extra order-status offer make it unnecessarily verbose for a straightforward request."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-ROB-002",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the status request, but the repeated explanation in the thinking section and unnecessary closing invitation make it overly verbose for a simple query."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer claims order SON-9999 was delivered, but lookup_order returned only order_not_found. That result supports uncertainty, not a delivery status, so the material claim is unsupported."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer claims the order was delivered, but the only operational evidence is an order_not_found error. That supports only that the order's status is unavailable, not that it was delivered."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly states that SON-9999 was not found and appropriately qualifies why it cannot claim delivery. However, it repeats the not-found result and adds an unnecessary offer of unrelated store assistance, making it more verbose than needed."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order-not-found result supports the inability to confirm the order's status. However, no retrieved evidence supports the claimed required order-ID format or the suggestion that the ID may be listed in a confirmation email, so support is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-ROB-003",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer claims that Sonora's privacy and policy restrictions prohibit disclosing order delivery status, but no policy or operational evidence supports that restriction. This is an unsupported material policy claim, not merely a statement that the status cannot be confirmed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output only describes an intention to decline and offer help; it does not actually answer the request, decline it directly, or offer store assistance."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order status, payment status, estimated delivery date, and statement that the order is not marked delivered are supported by the lookup_order result. However, the assertion that Sonora's rules require providing only verified database information is unsupported because no policy evidence was retrieved."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1042\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that SON-1042 is processing and does not claim it was delivered, but omits the required clarification that it is not delivered."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-ROB-004",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly states that delivery cannot be guaranteed and requests the necessary order information, but the included thinking section redundantly repeats the explanation, making the overall output unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether delivery tomorrow is guaranteed or explain that a guarantee cannot be provided."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The checkout delivery timeline is supported by policy 7.3, and the answer appropriately avoids claiming a delivery status. However, the required order ID format 'SON-XXXX' is not supported by any retrieved evidence, so support is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The central claim that Sonora never guarantees arrival on a specific day is contradicted by the policy's exceptions: section 7.4 permits an express delivery-time commitment, and section 7.3 says a more specific delivery commitment prevails. The preparation-and-transit explanation is supported, but the unconditional denial is not."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers directly that delivery cannot be guaranteed and offers to check the order status, but the extended discussion of shipping methods, policy citations, and delivery attempts is unnecessarily verbose for the question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer appropriately avoids claiming an order status or guaranteeing delivery and may request clarification without evidence. However, the Sonora-specific order ID format 'SON-####' is unsupported by the empty evidence arrays, so support is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-008",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both how long the order will be held and the exact last day, but the included thinking section adds unnecessary, repetitive explanation before the direct answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The order's ready-for-pickup status, seven-consecutive-day holding period, and follow-up options are supported. However, the policy starts the holding period after notice, not necessarily the status update. No retrieved evidence establishes that these occurred together, so the claimed exact deadline based on the status-update date is not fully supported."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response states the 7-day hold period, but repeats that information and defers the requested exact last pickup date to a follow-up, creating unnecessary indirection."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers that the hold lasts 7 consecutive days and appropriately asks for the notification date to calculate the deadline, but repeats that qualification and request across multiple paragraphs, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1059\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The 7-day holding period and follow-up contact are supported by Section 7.7. However, the tool returns November 10 only as estimated_delivery, not as the date of pickup notification or availability. The claimed availability date and resulting November 17 deadline are therefore unsupported material claims."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the hold period and appropriately qualifies why it cannot provide an exact last day, but repeats that limitation and adds unsolicited pickup identification requirements and store hours, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-009",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that shipping does not eliminate the withdrawal right and provides the applicable deadline, but the included thinking block unnecessarily repeats the explanation, making the overall output overly verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing: [{\"name\":\"lookup_order\",\"arguments\":{\"order_id\":\"SON-1044\"}}]; unexpected: []"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that shipping does not remove the statutory withdrawal right, but the lengthy policy quotation and repeated return guidance make it unnecessarily verbose for a simple question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The policy supports the 7-day withdrawal period, its receipt-based starting point for physical goods, and free return shipping. However, no operational evidence confirms that this order is still in transit. The answer asserts that status and consequently that the withdrawal period has not begun, rather than acknowledging that the order's status cannot be confirmed."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The withdrawal period, continued rights after dispatch, and free return instructions are supported by the policy evidence. However, the answer asserts that order SON-1044 is in transit without any operational evidence confirming its status. This is an unsupported order-specific status claim."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-010",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 16.1"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the cash-refund question and provides necessary exchange qualifications, but the included thinking section unnecessarily repeats the policy explanation and adds verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response fails to answer whether a change-of-mind purchase at a physical store qualifies for a cash refund and instead asks for the order ID already provided."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 16.1"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Most claims are supported by Section 9.6, including the 15-day preference exchange and lack of a cash-refund right for a simple change of mind. However, the blanket claim that this is the only return option for any physical-store purchase is contradicted by the evidence preserving statutory warranties and legally required refunds."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that a change-of-mind purchase at a physical store does not qualify for a cash refund, but repeats that conclusion several times and gives more exchange detail than necessary for this simple question."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question, but is unnecessarily lengthy and indirect, repeating legal-refund qualifications and adding exchange details and follow-up advice instead of giving a concise answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 16.1"
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-MHP-011",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question and includes the necessary settlement-time qualification, but repeats the explanation in the thinking block and final response, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes the necessary qualification that payment must be recorded, but repeats the payment-and-release explanation across three paragraphs instead of giving a concise answer."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that bank-slip settlement can take up to 2 business days and shipment is released only after payment is recognized. However, it omits the required fact that SON-1045 is currently awaiting payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that bank-slip settlement can take up to two business days and shipment is released only after payment recognition, but it omits the required confirmation that SON-1045 is awaiting payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question and includes the necessary payment-recognition qualification, but repeats the same conclusion across three paragraphs, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states that bank-slip settlement may take up to 2 business days and shipment occurs only after payment recognition, but omits the required fact that SON-1045 is currently awaiting payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-010",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output asks for a SKU instead of explaining what specifications and included items a product listing should provide, so it fails to answer the question."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question directly, but is unnecessarily verbose: accessories and package contents are repeated in multiple bullets and again in the summary. A shorter specifications list with the relevant qualifications would communicate the same information more concisely."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Section 4.2 supports every listed detail, but only 'where relevant.' The answer overstates the policy by saying all these items are required in every product description without that qualification."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The product-description, advertising, compatibility, and natural-variation claims are supported. However, the answer says Section 15.12 requires shipping restrictions to be disclosed in the listing, while the evidence permits disclosure either in the listing or during contracting. This overstates the requirement, so support is incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-011",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question with a clear list and necessary qualifications, but includes unnecessary internal-process narration, additional discussion of later supply delays, and a generic closing, making it more verbose than needed."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-012",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question clearly, but repeats the one-coupon policy several times and includes unnecessary reasoning and a generic closing offer, making it excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The output answers the question and provides relevant qualifications, but repeats the same policy explanation in the thinking block and the user-facing response, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and provides relevant qualifications, but repeats the one-coupon rule and campaign exception across two paragraphs, making it unnecessarily verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The one-coupon limit and possible combination with points or a transfer discount are supported. However, the answer then suggests a specific promotion could provide an exception to the one-coupon limit. Sections 8.3 and 16.5 explicitly state that promotional stacking authorization does not permit a second coupon, so this material qualification contradicts the evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The one-coupon-per-order rule is supported, but the answer implies that campaigns may make exceptions allowing multiple coupons. Section 8.3 explicitly says campaign exceptions concern combining one coupon with other benefits and do not allow a second coupon on the same order."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers that only one coupon is allowed and clarifies that stacking with other benefits does not permit a second coupon. However, the additional discussion of points and transfer-discount combinations is unnecessary for this question and makes the answer excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-013",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 11.2"
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response provides relevant qualifications, but then defers a precise answer and requests a reference number, adding indirection instead of concisely resolving both questions."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer correctly states the 10-day validity period and that customer silence does not authorize paid repairs. However, it says a shorter validity period may be specified, while policy 11.2 allows a more favorable period. This materially contradicts the evidence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states 10 consecutive days and that silence does not authorize paid work, but omits the required exception that the estimate may remain valid longer if Sonora states a longer period."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-014",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the question and includes the necessary legal qualification, but the visible thinking paragraph repeats the answer and the closing offer adds unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers the refund-target question and includes the necessary legal qualification, but the visible thinking section unnecessarily repeats the answer, making the overall output verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states the 2-business-day operational target after legitimate recipient details are confirmed, but omits that a shorter legal deadline, including an immediate legal refund requirement, takes precedence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states the 2-business-day target after legitimate recipient details are confirmed, but omits that a shorter legal deadline takes precedence and the target does not limit an immediate legal refund."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly states the 2-business-day target after recipient details are confirmed, but omits that a shorter legal deadline or immediate legal refund obligation takes precedence."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-015",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question, includes automated-decision review, and provides necessary qualifications. However, the lengthy prefatory thinking section repeats the substantive answer, creating unnecessary verbosity."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer asserts that privacy rights and automated decisions are outside Sonora's service scope, but no current or prior evidence supports that limitation. It does not invent order, account, or product details."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The answer claims that privacy rights and automated-decision protections fall outside Sonora’s policies and services, but all evidence arrays are empty. This material Sonora-specific scope claim is unsupported."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly answers the question and includes relevant qualifications, but adds excessive procedural detail, an unrelated note about public prices and compatibility, and a repeated instruction for submitting requests."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The listed rights and section references are largely supported by Sections 13.8 and 13.9. However, the evidence does not specify that portability provides a structured, commonly used format, or establish credit checks and personalized offers as examples of Sonora’s solely automated decisions. These additions leave support incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-016",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks the customer to verify the order ID but does not answer whether they must pay again or address their proof of payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for the exact order ID but does not answer whether the customer must pay again despite having proof of payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The clarification request and uncertainty about payment status are appropriate without evidence. However, the claim that Sonora order IDs use the format SON‑XXXX is unsupported by the empty current and prior evidence arrays."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response is concise but does not answer whether the customer must pay again; it only requests an order ID for investigation."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly says no second payment is needed before investigation and that payment must be verified with the financial provider. However, it omits the required clarification that a receipt alone may not establish settlement. It makes no forbidden claim."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response correctly says no second payment is required before investigation and that Sonora must verify payment with the financial provider. However, it omits the required clarification that a receipt alone may not establish settlement. It makes no forbidden claim that payment is definitely settled."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID but does not answer whether the user must pay again or address their proof of payment."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for an order ID and promises to check policy, but does not answer whether the customer must pay again."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    },
+    {
+      "conversationId": "SON-POL-017",
+      "turnCount": 1,
+      "success": false,
+      "reason": "Session is missing a graded turn or has duplicate turn indexes.",
+      "turns": [
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response directly explains that the order details are unavailable and offers next steps, but the included thinking block adds unnecessary, repetitive explanation."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response answers both questions, but repeats the explanation in the thinking section and final answer and adds unnecessary waiting and customer-service advice, making it excessively verbose."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "Missing retrieved policy sections: 7.12"
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response only requests an order ID and does not answer whether the order can be marked fully delivered or whether each package can have its own tracking."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The claim that an order cannot be marked fully delivered while a required package remains pending is supported by Section 7.12. However, the assertion that the carrier will provide a separate tracking code for every package overstates the evidence: Section 7.12 says each package may have its own tracking, and Section 7.6 makes tracking conditional on carrier provision."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The response asks for a correct order ID but does not answer whether the order can be marked fully delivered or whether each package can have its own tracking."
+        },
+        {
+          "turnIndex": 1,
+          "success": false,
+          "error": "The policy statements are supported by Sections 7.12, 9.9, and 16.12, and the answer does not guess the order's status. However, the evidence does not establish the SON-#### order-ID format or the assistant's claimed ability to retrieve and confirm order status, nor its inability to change that status. Support is therefore incomplete."
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        },
+        {
+          "turnIndex": 1,
+          "success": true
+        }
+      ]
+    }
+  ]
+}
