@@ -4,7 +4,7 @@
     "nova-micro": {
       "name": "Amazon Nova Micro",
       "model_id": "amazon.nova-micro-v1:0",
-      "invocation_id": "us.amazon.nova-micro-v1:0",
+      "invocation_id": "amazon.nova-micro-v1:0",
       "tool_support": "documented",
       "parameters": {
         "temperature": 0
@@ -13,7 +13,7 @@
     "nova-lite": {
       "name": "Amazon Nova Lite",
       "model_id": "amazon.nova-lite-v1:0",
-      "invocation_id": "us.amazon.nova-lite-v1:0",
+      "invocation_id": "amazon.nova-lite-v1:0",
       "tool_support": "documented",
       "parameters": {
         "temperature": 0

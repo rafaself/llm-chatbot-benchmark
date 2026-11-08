@@ -2,12 +2,12 @@
 
 Checked against official documentation on **2026-11-04**. Catalog support is not evidence that this account can invoke a model. On **2026-11-07** a three-turn GPT-6 Luna run (`us.openai.gpt-6-luna`, judge `bedrock:converse:us.openai.gpt-6.1-sol`, request ceiling 18) failed before any model response because the AWS credential chain had no access key. No other target was substituted. Regions, inference profiles, subscriptions, IAM/SCP permissions, quotas, and lifecycle can change independently.
 
-Targets now use AI SDK’s direct Bedrock Converse provider with the AWS credential chain; native Promptfoo providers perform grading. The catalog evidence below predates this adapter migration and does not verify SDK/account compatibility. The registry distinguishes base model identifiers from invocation profiles. The default source region is `us-east-1`; verify a different source region before changing it.
+Targets now use AI SDK’s direct Bedrock Converse provider with the AWS credential chain; native Promptfoo providers perform grading. The catalog evidence below predates this adapter migration and does not verify SDK/account compatibility. Nova Micro and Nova Lite use their base model IDs for in-region inference in `us-east-1`; other targets retain their configured invocation IDs, including inference profiles where applicable. The default source region is `us-east-1`; verify a different source region before changing it.
 
 | Requested target | Base model ID | Configured invocation ID | Tool evidence |
 | --- | --- | --- | --- |
-| [Nova Micro](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html) | `amazon.nova-micro-v1:0` | `us.amazon.nova-micro-v1:0` | AWS card documents Converse and client-side tools |
-| [Nova Lite](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html) | `amazon.nova-lite-v1:0` | `us.amazon.nova-lite-v1:0` | AWS card documents Converse and client-side tools |
+| [Nova Micro](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-micro.html) | `amazon.nova-micro-v1:0` | `amazon.nova-micro-v1:0` | In-region in `us-east-1`; AWS card documents Converse and client-side tools |
+| [Nova Lite](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-lite.html) | `amazon.nova-lite-v1:0` | `amazon.nova-lite-v1:0` | In-region in `us-east-1`; AWS card documents Converse and client-side tools |
 | [Nemotron Nano 3 30B](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-nano-3-30b.html) | `nvidia.nemotron-nano-3-30b` | Same | Converse on model card; native tool support in AWS newsletter below; commercial-region behavior untested |
 | [Nemotron Super 3 120B](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-super-3-120b.html) | `nvidia.nemotron-super-3-120b` | Same | Same qualification as Nano |
 | [GPT-OSS 20B](https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-20b.html) | `openai.gpt-oss-20b-1:0` | Same | Converse on card; native tool support in AWS newsletter; region/account untested |

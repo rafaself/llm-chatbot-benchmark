@@ -44,14 +44,14 @@
       },
       "long": { "input": 0.2, "cache_write": 0.25, "cache_read": 0.02, "output": 0.75 }
     },
-    "bedrock:us.amazon.nova-micro-v1:0": {
+    "bedrock:amazon.nova-micro-v1:0": {
       "source": "https://modeleol.com/models/amazon-nova-micro",
-      "inference": "us-geo",
+      "inference": "us-east-1-in-region",
       "short": { "input": 0.035, "output": 0.14 }
     },
-    "bedrock:us.amazon.nova-lite-v1:0": {
+    "bedrock:amazon.nova-lite-v1:0": {
       "source": "https://modeleol.com/models/amazon-nova-lite",
-      "inference": "us-geo",
+      "inference": "us-east-1-in-region",
       "short": { "input": 0.06, "output": 0.24 }
     },
     "bedrock:nvidia.nemotron-nano-3-30b": {

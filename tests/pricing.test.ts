@@ -13,7 +13,7 @@ test('every benchmark model has a US East Bedrock rate', () => {
   assert.ok('openai:gpt-6.1-sol' in prices.routes);
 });
 
-test('US cross-Region rates price short context, cache, and long aggregates', () => {
+test('US Bedrock rates price short context, cache, and long aggregates', () => {
   assert.equal(
     judgeRoute('bedrock:converse:us.openai.gpt-6.1-sol'),
     'bedrock:us.openai.gpt-6.1-sol',
@@ -47,7 +47,7 @@ test('US cross-Region rates price short context, cache, and long aggregates', ()
   assert.equal(
     priceUsage(
       { prompt: 1_000_000, completion: 0 },
-      'bedrock:us.amazon.nova-micro-v1:0',
+      'bedrock:amazon.nova-micro-v1:0',
     ).usd,
     0.035,
   );

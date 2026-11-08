@@ -69,7 +69,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
   );
   assert.deepEqual(
     liveProviders.map((provider) => provider.config?.model),
-    ['us.amazon.nova-micro-v1:0', 'us.amazon.nova-lite-v1:0'],
+    ['amazon.nova-micro-v1:0', 'amazon.nova-lite-v1:0'],
   );
   assert.equal(prepared.judge.id, 'bedrock:converse:us.openai.gpt-6.1-sol');
   assert.equal(prepared.plannedRequests, 70);
