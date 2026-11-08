@@ -68,5 +68,21 @@ test('the deterministic policy index is non-empty and uses stable section IDs', 
   assert.ok(
     searchPolicy('free economy shipping 599 threshold').some((d) => d.id === '7.5'),
   );
+  assert.equal(searchPolicy('shipping warranty return payment discount').length, 10);
+  assert.ok(
+    searchPolicy(
+      'warranty manufacturing defect discounted sale item warranty exclusions sale discount',
+    ).some((d) => d.id === '10.1'),
+  );
+  assert.ok(
+    searchPolicy(
+      'return one item from order that qualified for free economy shipping threshold. Can original shipping be charged retroactively? refund calculation partial return threshold falls below, shipping refund',
+    ).some((d) => d.id === '7.5'),
+  );
+  assert.ok(
+    searchPolicy(
+      'In-store purchase changed mind return cash refund return policy physical store',
+    ).some((d) => d.id === '16.1'),
+  );
   assert.deepEqual(searchPolicy(''), []);
 });

@@ -58,7 +58,7 @@ for (const doc of postings) {
 }
 export const policySectionIds = new Set(sections.map((s) => s.id));
 
-export function searchPolicy(query: string, limit = 6): PolicyDocument[] {
+export function searchPolicy(query: string, limit = 10): PolicyDocument[] {
   const terms = [...new Set(tokens(query))];
   if (terms.length === 0) return [];
   return postings

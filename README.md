@@ -21,7 +21,7 @@ runs multi-step model/tool exchanges.
   No cost estimate is presented as a billing record.
 
 Policy: `datasets/sonora_store_policy.md`; fixed retrieval:
-`src/retrieval.ts` (section-based BM25 lexical baseline, no external embeddings);
+`src/retrieval.ts` (section-based BM25 lexical baseline returning the 10 highest-scoring sections, no external embeddings);
 read-only customer-free tool outputs from
 `datasets/sonora_store_database.sqlite` (seed SQL also provided).
 The model chooses search queries and tool calls. The same retriever and data
