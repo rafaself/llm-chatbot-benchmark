@@ -1,3 +1,5 @@
+<img width="2508" height="627" alt="image" src="https://github.com/user-attachments/assets/1e2df849-365f-40e2-9dae-02d9a5a4fdc3" />
+
 # Sonora End-to-End Chatbot Benchmark
 
 Compare language models as complete customer-support agents, not as answer
