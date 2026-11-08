@@ -4,6 +4,8 @@ import type { SessionScore } from './sessions.ts';
 export interface ReportInput {
   summary: CostSummary;
   sessions: SessionScore[];
+  modelNames: string[];
+  expectedSessions: number;
   durationMs?: number | null;
   benchmarkId: string;
   benchmarkVersion: string;
@@ -49,6 +51,123 @@ function outcomes(sessions: SessionScore[]) {
 
 function tokenTotal(prompt: number, completion: number) {
   return prompt + completion;
+}
+
+function compactNumber(value: number) {
+  return value.toLocaleString('en-US');
+}
+
+function seconds(milliseconds: number | null) {
+  return milliseconds === null ? 'unknown' : (milliseconds / 1000).toFixed(3);
+}
+
+function percentile(values: number[], fraction: number) {
+  const sorted = [...values].sort((left, right) => left - right);
+  const index = Math.min(
+    sorted.length - 1,
+    Math.max(0, Math.floor((sorted.length - 1) * fraction)),
+  );
+  return sorted[index] ?? 0;
+}
+
+function sumKnown(values: Array<number | null>) {
+  const known = values.filter((value): value is number => value !== null);
+  return known.length ? known.reduce((total, value) => total + value, 0) : null;
+}
+
+function modelRows(input: ReportInput) {
+  const modelNames = [
+    ...new Set([...input.modelNames, ...input.summary.turns.map((turn) => turn.model)]),
+  ];
+  const rows = modelNames.map((model) => {
+    const turns = input.summary.turns.filter((turn) => turn.model === model);
+    const sessions = input.sessions.filter((session) => session.model === model);
+    const passed = turns.filter((turn) => turn.success && !turn.provider_error).length;
+    const errors = turns.filter((turn) => turn.provider_error).length;
+    const failed = turns.length - passed - errors;
+    const latencies = turns.flatMap((turn) =>
+      turn.latency_ms === null ? [] : [turn.latency_ms],
+    );
+    const targetUsd = sumKnown(turns.map((turn) => turn.assistant.usd));
+    const judgeUsd = sumKnown(turns.map((turn) => turn.judge.usd));
+    const totalUsd =
+      targetUsd === null || judgeUsd === null ? null : targetUsd + judgeUsd;
+    return {
+      model,
+      turns,
+      sessions,
+      passed,
+      failed,
+      errors,
+      targetUsd,
+      judgeUsd,
+      totalUsd,
+      inputTokens: turns.reduce(
+        (total, turn) => total + turn.assistant.prompt_tokens,
+        0,
+      ),
+      outputTokens: turns.reduce(
+        (total, turn) => total + turn.assistant.completion_tokens,
+        0,
+      ),
+      requests: turns.reduce((total, turn) => total + turn.assistant.requests, 0),
+      usageMissing: turns.filter((turn) => turn.usage_missing).length,
+      medianLatency: latencies.length > 0 ? percentile(latencies, 0.5) : null,
+      maxLatency: latencies.length > 0 ? percentile(latencies, 1) : null,
+    };
+  });
+  const allTurns = input.summary.turns;
+  const allSessions = input.sessions;
+  const passed = allTurns.filter((turn) => turn.success && !turn.provider_error).length;
+  const errors = allTurns.filter((turn) => turn.provider_error).length;
+  const latencies = allTurns.flatMap((turn) =>
+    turn.latency_ms === null ? [] : [turn.latency_ms],
+  );
+  const targetUsd = sumKnown(allTurns.map((turn) => turn.assistant.usd));
+  const judgeUsd = sumKnown(allTurns.map((turn) => turn.judge.usd));
+  rows.push({
+    model: 'All models',
+    turns: allTurns,
+    sessions: allSessions,
+    passed,
+    failed: allTurns.length - passed - errors,
+    errors,
+    targetUsd,
+    judgeUsd,
+    totalUsd: targetUsd === null || judgeUsd === null ? null : targetUsd + judgeUsd,
+    inputTokens: allTurns.reduce(
+      (total, turn) => total + turn.assistant.prompt_tokens,
+      0,
+    ),
+    outputTokens: allTurns.reduce(
+      (total, turn) => total + turn.assistant.completion_tokens,
+      0,
+    ),
+    requests: allTurns.reduce((total, turn) => total + turn.assistant.requests, 0),
+    usageMissing: allTurns.filter((turn) => turn.usage_missing).length,
+    medianLatency: latencies.length > 0 ? percentile(latencies, 0.5) : null,
+    maxLatency: latencies.length > 0 ? percentile(latencies, 1) : null,
+  });
+  return rows.map((row) => {
+    const expected =
+      row.model === 'All models'
+        ? input.expectedSessions * modelNames.length
+        : input.expectedSessions;
+    return [
+      row.model,
+      row.passed + ' / ' + row.failed + ' / ' + row.errors,
+      row.turns.filter((turn) => turn.response_completed).length +
+        ' / ' +
+        row.turns.filter((turn) => turn.graded).length +
+        ' / ' +
+        row.turns.length,
+      row.sessions.filter((session) => session.success).length + ' / ' + expected,
+      money(row.targetUsd) + ' / ' + money(row.judgeUsd) + ' / ' + money(row.totalUsd),
+      compactNumber(row.inputTokens) + ' / ' + compactNumber(row.outputTokens),
+      compactNumber(row.requests) + ' / ' + row.usageMissing,
+      seconds(row.medianLatency) + ' / ' + seconds(row.maxLatency),
+    ];
+  });
 }
 
 export function durationFromPromptfooResult(parsed: unknown) {
@@ -117,6 +236,27 @@ export function renderBenchmarkReport(input: ReportInput) {
         ],
       ],
     ),
+    '',
+    '## Per model',
+    '',
+    table(
+      [
+        'Model',
+        'Turn pass / fail / error',
+        'Responses / graded / attempted',
+        'Sessions passed / total',
+        'Target / judge / total est. USD',
+        'Input / output tokens',
+        'Provider requests / usage-missing turns',
+        'Median / max latency (s)',
+      ],
+      modelRows(input),
+    ),
+    '',
+    'Session totals group each conversation separately for each configured model. The denominator includes the expected sessions for every configured model.',
+    '',
+    'Turn outcomes classify provider errors separately from failed evaluations. Response counts mean non-empty final answers; graded counts mean rows with grading component results. HTTP status and human review status are not recorded.',
+    'Estimated USD is target model / judge / combined list-price cost. Provider requests use target token usage; usage-missing turns have no reported prompt or completion tokens. Latency uses the recorded row latency.',
     '',
     '## Time',
     '',

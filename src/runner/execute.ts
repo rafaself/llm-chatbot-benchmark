@@ -19,11 +19,13 @@ import {
 } from './report.ts';
 import { readEvalRows, scoreSessions } from './sessions.ts';
 
-export function executeRun(
-  options: RunnerOptions,
-  prepared: PreparedRun,
-  metadata: Record<string, unknown>,
-) {
+export function executeRun<
+  T extends {
+    benchmark_id: string;
+    benchmark_version: string;
+    mode: string;
+  },
+>(options: RunnerOptions, prepared: PreparedRun, metadata: T) {
   const output = resolve(
     options.output ??
       join(
@@ -93,7 +95,7 @@ export function executeRun(
     ? (JSON.parse(readFileSync(resultPath, 'utf8')) as unknown)
     : undefined;
   const rows = parsed ? readEvalRows(parsed) : [];
-  const sessions = rows.length ? scoreSessions(rows) : [];
+  const sessions = rows.length ? scoreSessions(rows, { byModel: true }) : [];
   const summary = parsed ? summarizeCosts(rows, prepared.judge.id) : undefined;
   const durationMs = parsed ? durationFromPromptfooResult(parsed) : null;
   if (summary) {
@@ -130,6 +132,8 @@ export function executeRun(
     const report = renderBenchmarkReport({
       summary,
       sessions,
+      modelNames: options.live ? prepared.selected : ['offline-fixture'],
+      expectedSessions: sessionsPrepared,
       durationMs,
       benchmarkId: String(runMetadata.benchmark_id),
       benchmarkVersion: String(runMetadata.benchmark_version),

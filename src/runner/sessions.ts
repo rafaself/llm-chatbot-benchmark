@@ -1,6 +1,6 @@
 export interface SessionTurnResult {
   success?: boolean;
-  error?: string | null;
+  provider?: { id?: string; label?: string };
   prompt?: { raw?: string };
   response?: {
     error?: string;
@@ -11,11 +11,13 @@ export interface SessionTurnResult {
     conversationId?: string;
     turnIndex?: number;
     turnCount?: number;
+    model_id?: string;
   };
   gradingResult?: { componentResults?: unknown[] };
 }
 
 export interface SessionScore {
+  model?: string;
   conversationId: string;
   turnCount: number;
   success: boolean;
@@ -24,7 +26,11 @@ export interface SessionScore {
 }
 
 function turnError(turn: SessionTurnResult) {
-  return turn.error || turn.response?.error || undefined;
+  return turn.response?.error || undefined;
+}
+
+export function modelNameForRow(row: Pick<SessionTurnResult, 'provider' | 'metadata'>) {
+  return row.provider?.label ?? row.provider?.id ?? row.metadata?.model_id ?? 'unknown';
 }
 
 export function assistantText(turn: SessionTurnResult) {
@@ -38,17 +44,29 @@ export function assistantText(turn: SessionTurnResult) {
   return '';
 }
 
-export function scoreSessions(rows: SessionTurnResult[]): SessionScore[] {
-  const groups = new Map<string, SessionTurnResult[]>();
+export function scoreSessions(
+  rows: SessionTurnResult[],
+  options: { byModel?: boolean } = {},
+): SessionScore[] {
+  const groups = new Map<
+    string,
+    { conversationId: string; model?: string; turns: SessionTurnResult[] }
+  >();
   for (const row of rows) {
     const conversationId = row.metadata?.conversationId;
     if (!conversationId)
       throw new Error('Graded turn is missing metadata.conversationId');
-    const turns = groups.get(conversationId) ?? [];
-    turns.push(row);
-    groups.set(conversationId, turns);
+    const model = options.byModel ? modelNameForRow(row) : undefined;
+    const key = model ? model + '\0' + conversationId : conversationId;
+    const group = groups.get(key) ?? {
+      conversationId,
+      ...(model ? { model } : {}),
+      turns: [],
+    };
+    group.turns.push(row);
+    groups.set(key, group);
   }
-  return [...groups.entries()].map(([conversationId, turns]) => {
+  return [...groups.values()].map(({ conversationId, model, turns }) => {
     const declared = [
       ...new Set(
         turns.flatMap((turn) => {
@@ -82,6 +100,7 @@ export function scoreSessions(rows: SessionTurnResult[]): SessionScore[] {
         ? 'Every turn passed independently.'
         : 'One or more turns failed.';
     return {
+      ...(model ? { model } : {}),
       conversationId,
       turnCount: turnCount ?? sorted.length,
       success: Boolean(success),

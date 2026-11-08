@@ -1,4 +1,5 @@
 import prices from '../../evaluation/config/prices.json' with { type: 'json' };
+import { assistantText, modelNameForRow, type SessionTurnResult } from './sessions.ts';
 
 interface TokenRates {
   input: number;
@@ -40,9 +41,14 @@ export interface PricedUsage {
 
 export interface TurnPrice {
   id: string;
+  model: string;
   category: string;
   session_id: string;
   success: boolean;
+  provider_error: boolean;
+  response_completed: boolean;
+  graded: boolean;
+  usage_missing: boolean;
   latency_ms: number | null;
   assistant: PricedUsage;
   judge: PricedUsage;
@@ -160,14 +166,15 @@ function mean(values: number[]) {
   return roundUsd(values.reduce((sum, value) => sum + value, 0) / values.length);
 }
 
-interface CostRow {
-  success?: boolean;
+type CostRow = SessionTurnResult & {
   latencyMs?: number;
-  provider?: { id?: string; label?: string };
   vars?: { id?: string; expected_category?: string; session_id?: string };
-  metadata?: { conversationId?: string; latency_ms?: number; category?: string };
+  metadata?: SessionTurnResult['metadata'] & {
+    latency_ms?: number;
+    category?: string;
+  };
   tokenUsage?: TokenCounts;
-}
+};
 
 export function summarizeCosts(
   rows: CostRow[],
@@ -186,9 +193,16 @@ export function summarizeCosts(
         : roundUsd(assistant.usd + judge.usd);
     return {
       id: row.vars?.id ?? '',
+      model: modelNameForRow(row),
       category: row.vars?.expected_category ?? row.metadata?.category ?? '',
       session_id: row.metadata?.conversationId ?? row.vars?.session_id ?? '',
       success: row.success === true,
+      provider_error: Boolean(row.response?.error),
+      response_completed: assistantText(row).length > 0,
+      graded: (row.gradingResult?.componentResults?.length ?? 0) > 0,
+      usage_missing:
+        !row.tokenUsage ||
+        (assistant.prompt_tokens === 0 && assistant.completion_tokens === 0),
       latency_ms: row.latencyMs ?? row.metadata?.latency_ms ?? null,
       assistant,
       judge,
