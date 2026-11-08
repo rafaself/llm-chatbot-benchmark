@@ -127,15 +127,43 @@ configuration and caveats.
 - The offline mock judge always awards full rubric grades: smoke results
   only demonstrate wiring, **never real model quality**.
 
-Each run creates immutable output under ignored `evaluation/results/<timestamp>/`:
-Promptfoo JSON/HTML, resolved config, metadata/hashes, `stats.json`, and
-diagnostics. `stats.md` is the human-readable report: success, latency,
-tokens, estimated cost, and category totals taken from `stats.json` and
-`sessions.json`. That estimate is not a billing record.
-The manifest hashes the selected dataset, policy file, operational SQLite
-database, prompt, scoring config, source code, model registry and dependencies.
-Keep the same revision, corpus, tools, model parameters and judge settings
-when comparing results.
+Each run creates immutable output under ignored
+`evaluation/results/<timestamp>/`: Promptfoo JSON/HTML, resolved config,
+metadata/hashes, `stats.json`, and diagnostics. The `stats.md` report shows
+success, latency, tokens, estimated cost, and category totals from the run
+artifacts. Cost is an estimate, not a billing record. The manifest hashes the
+selected dataset, policy, operational SQLite database, prompt, scoring config,
+source code, model registry, and dependencies. Keep those inputs fixed when
+comparing results.
+
+Official snapshots live outside that working area in
+`evaluation/official-results/v<version>/`. The first official baseline is
+`evaluation/official-results/v1.0.0/`; it is a copy of the complete run plus
+release provenance and a `SHA256SUMS` manifest.
+
+`evaluation/benchmark.json` identifies the benchmark definition. The timestamp
+is a run ID, separate from the benchmark version. Metadata records the Git
+revision, dataset and source hashes, selected cases, dependencies, models,
+parameters, and judge. Each official snapshot's `release.json` links that
+provenance to its source run and benchmark version. Keep published snapshots
+unchanged; create a new version directory for a later official run.
+
+Use these version rules:
+
+- **Major:** change score meaning or core behavior, such as the rubric/judge,
+  system prompt, tools, retrieval, policy/database snapshot, or existing
+  expected labels.
+- **Minor:** add independently reviewed cases or categories without changing
+  existing cases or labels. Because the test mix changes, aggregate scores
+  across minor versions are not directly comparable.
+- **Patch:** documentation or report presentation changes that cannot affect
+  model inputs, execution, grading, or scores.
+
+Candidate model IDs and run parameters are recorded per run; changing the
+candidate set alone does not change the benchmark version. For direct score
+comparisons, keep the relevant source hashes, selected cases, judge settings,
+and evaluation parameters fixed. If a benchmark version changes, compare only
+shared stable case IDs or rerun candidates against the same frozen version.
 
 ## Safety and limitations
 
