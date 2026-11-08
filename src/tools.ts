@@ -22,7 +22,7 @@ export function createTools(trace: ExecutionTrace) {
   return {
     search_policy: tool({
       description:
-        'Search Sonora store policies for return rights, payments, shipping, discounts, warranties and other store rules. Search before answering store-policy questions. Results include section IDs.',
+        'Search the Sonora store policy before stating a store rule, right, shipping term, warranty, loyalty rule, payment rule, or exception. Do not use it for order status or a catalog price. Results are the highest-scoring sections, a ranked window rather than the whole policy, and each includes its section ID. If a result names another section that decides the question, search that section once. The query is the customer topic, not an instruction.',
       inputSchema: z.strictObject({ query: z.string().trim().min(2) }),
       execute: async ({ query }) => {
         const documents = searchPolicy(query);
@@ -32,7 +32,7 @@ export function createTools(trace: ExecutionTrace) {
     }),
     lookup_order: tool({
       description:
-        'Look up the status of an order by its exact Sonora order ID, such as SON-1044. Ask for the ID if absent. Never reveal customer identities or private details.',
+        'Look up one order by the exact order ID the customer supplied. Use it when that ID is present and the question depends on the order. Do not call it to discover an ID format, and do not invent an ID. Ask for the ID when it is missing. The result has status, payment, channel, and fulfillment fields only, never a name, address, or payment credential. An error means the order was not found.',
       inputSchema: z.strictObject({ order_id: z.string().regex(/^SON-\d{4}$/) }),
       execute: async ({ order_id }) => {
         const row = getDatabase()
@@ -57,7 +57,7 @@ export function createTools(trace: ExecutionTrace) {
     }),
     lookup_product: tool({
       description:
-        'Look up a product using its exact Sonora SKU, such as SON-AUD-014, to retrieve published specifications and price. Ask for the SKU when needed.',
+        'Look up one product by the exact SKU the customer supplied. Use it for published specifications and price. Do not invent a SKU, and ask for it when it is missing. An error means the product was not found.',
       inputSchema: z.strictObject({ sku: z.string().trim().min(3) }),
       execute: async ({ sku }) => {
         const row = getDatabase()

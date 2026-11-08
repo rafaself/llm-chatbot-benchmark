@@ -27,6 +27,8 @@ read-only customer-free tool outputs from
 The model chooses search queries and tool calls. The same retriever and data
 are used for all candidates. This is a benchmark of the **full agent system**,
 not an isolated language-model knowledge exam or a production-grade semantic RAG.
+The system-prompt contracts, and the references they follow, are in
+`docs/system-prompt.md`.
 
 ## Golden evaluation dataset
 
