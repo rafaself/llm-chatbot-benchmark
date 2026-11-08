@@ -11,6 +11,7 @@ import { spawnSync } from 'node:child_process';
 import { dump } from 'js-yaml';
 import type { RunnerOptions } from './cli.ts';
 import { ROOT, sessionCount, type PreparedRun } from './config.ts';
+import { formatCostSummary, summarizeCosts } from './pricing.ts';
 import { readEvalRows, scoreSessions } from './sessions.ts';
 
 export function executeRun(
@@ -76,9 +77,13 @@ export function executeRun(
   );
   closeSync(log);
   const resultPath = join(output, 'result.json');
-  const sessions = existsSync(resultPath)
-    ? scoreSessions(readEvalRows(JSON.parse(readFileSync(resultPath, 'utf8'))))
-    : [];
+  const parsed = existsSync(resultPath)
+    ? (JSON.parse(readFileSync(resultPath, 'utf8')) as unknown)
+    : undefined;
+  const rows = parsed ? readEvalRows(parsed) : [];
+  const sessions = rows.length ? scoreSessions(rows) : [];
+  const summary = parsed ? summarizeCosts(rows, prepared.judge.id) : undefined;
+  if (summary) save('stats.json', summary);
   if (sessions.length) {
     save('sessions.json', {
       success: sessions.every((session) => session.success),
@@ -109,6 +114,7 @@ export function executeRun(
         ' passed.',
     );
   }
+  if (summary) console.log(formatCostSummary(summary));
   if (result.error) throw result.error;
   if (processExitCode !== 0) return processExitCode;
   return sessionFailed ? 1 : 0;

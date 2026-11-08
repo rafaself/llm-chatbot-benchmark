@@ -1,0 +1,90 @@
+{
+  "checked_on": "2026-11-07",
+  "currency": "USD",
+  "unit": "per_1m_tokens",
+  "long_context_input_tokens": 272000,
+  "notes": "List prices for the Standard tier in US East (N. Virginia). A us. invocation ID uses that profile's published rate. OpenAI first-party rates apply only to the OpenAI judge route. Cache tokens without a published cache rate are charged at the input rate. This is not an invoice.",
+  "routes": {
+    "bedrock:us.openai.gpt-6-luna": {
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-luna.html",
+      "inference": "us-geo-cris",
+      "short": {
+        "input": 0.11,
+        "cache_write": 0.1375,
+        "cache_read": 0.011,
+        "output": 0.55
+      },
+      "long": {
+        "input": 0.22,
+        "cache_write": 0.275,
+        "cache_read": 0.022,
+        "output": 0.825
+      }
+    },
+    "bedrock:us.openai.gpt-6.1-sol": {
+      "source": "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-6-1-sol.html",
+      "inference": "us-cris",
+      "short": { "input": 2.2, "cache_write": 2.75, "cache_read": 0.11, "output": 11 },
+      "long": { "input": 4.4, "cache_write": 5.5, "cache_read": 0.22, "output": 16.5 }
+    },
+    "openai:gpt-6.1-sol": {
+      "source": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "inference": "first-party-standard",
+      "short": { "input": 2, "cache_write": 2.5, "cache_read": 0.1, "output": 10 },
+      "long": { "input": 4, "cache_write": 5, "cache_read": 0.2, "output": 15 }
+    },
+    "openai:gpt-6-luna": {
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+      "inference": "first-party-standard",
+      "short": {
+        "input": 0.1,
+        "cache_write": 0.125,
+        "cache_read": 0.01,
+        "output": 0.5
+      },
+      "long": { "input": 0.2, "cache_write": 0.25, "cache_read": 0.02, "output": 0.75 }
+    },
+    "bedrock:us.amazon.nova-micro-v1:0": {
+      "source": "https://modeleol.com/models/amazon-nova-micro",
+      "inference": "us-geo",
+      "short": { "input": 0.035, "output": 0.14 }
+    },
+    "bedrock:us.amazon.nova-lite-v1:0": {
+      "source": "https://modeleol.com/models/amazon-nova-lite",
+      "inference": "us-geo",
+      "short": { "input": 0.06, "output": 0.24 }
+    },
+    "bedrock:nvidia.nemotron-nano-3-30b": {
+      "source": "https://aws.amazon.com/bedrock/pricing/",
+      "inference": "us-east-1-in-region",
+      "short": { "input": 0.06, "output": 0.24 }
+    },
+    "bedrock:nvidia.nemotron-super-3-120b": {
+      "source": "https://aws.amazon.com/bedrock/pricing/",
+      "inference": "us-east-1-in-region",
+      "short": { "input": 0.15, "output": 0.65 }
+    },
+    "bedrock:openai.gpt-oss-20b-1:0": {
+      "source": "https://modeleol.com/models/openai-gpt-oss-20b",
+      "inference": "us-east-1-in-region",
+      "short": { "input": 0.07, "output": 0.3 }
+    },
+    "bedrock:openai.gpt-oss-120b-1:0": {
+      "source": "https://modeleol.com/models/openai-gpt-oss-120b",
+      "inference": "us-east-1-in-region",
+      "short": { "input": 0.15, "output": 0.6 }
+    },
+    "bedrock:qwen.qwen3-32b-v1:0": {
+      "source": "https://modeleol.com/models/qwen-qwen3-32b",
+      "inference": "us-east-1-in-region",
+      "short": { "input": 0.15, "output": 0.6 }
+    },
+    "bedrock:us.anthropic.claude-haiku-5-5": {
+      "source": "https://llmprice.org/models/anthropic/claude-haiku-5.5",
+      "inference": "us-geo",
+      "long_context_input_tokens": 100000,
+      "short": { "input": 0.11, "cache_read": 0.011, "output": 0.55 },
+      "long": { "input": 0.55, "cache_read": 0.055, "output": 2.75 }
+    }
+  }
+}

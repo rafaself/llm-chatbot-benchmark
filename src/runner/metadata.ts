@@ -22,6 +22,7 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     'promptfooconfig.yaml',
     'src/assertions.cjs',
     'config/models.json',
+    'config/prices.json',
     'prompts/chat.json',
     'package.json',
     'package-lock.json',
