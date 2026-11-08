@@ -9,6 +9,7 @@
   },
   "scripts": {
     "benchmark": "node src/run.ts",
+    "full-benchmark": "node src/run.ts --live --allow-paid --models nova-micro nova-lite nemotron-nano nemotron-super gpt-oss-20b gpt-oss-120b qwen3-32b haiku-5.5 gpt-6-luna gpt-6.1-sol --allow-unverified-tools --max-requests 4060",
     "preview": "node src/run.ts --live --prepare-only",
     "smoke": "node src/run.ts --smoke",
     "lint": "eslint src tests",

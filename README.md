@@ -82,6 +82,10 @@ npm run benchmark -- --live --allow-paid --models nova-micro
 # Compare two models (raise upper bound only if acceptable).
 npm run benchmark -- --live --allow-paid --models nova-micro nova-lite --max-requests 600
 
+# Full live development benchmark for all configured models. This makes paid
+# Bedrock calls; the 4060-request ceiling is not a monetary cap.
+npm run full-benchmark
+
 # Reserve the holdout for release-candidate checks.
 npm run preview -- --models nova-micro --dataset evaluation/datasets/golden/heldout.jsonl
 ```
