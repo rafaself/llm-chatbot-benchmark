@@ -31,7 +31,7 @@ test(
       );
       const prepared = prepareConfig(parsed);
       assert.equal(prepared.tests.length, 3);
-      assert.equal(prepared.plannedRequests, 18);
+      assert.equal(prepared.plannedRequests, 21);
       assert.equal(executeRun(parsed, prepared, createMetadata(parsed, prepared)), 0);
       const output = join(directory, 'run');
       const rows = readEvalRows(

@@ -72,7 +72,7 @@ test('live config preserves model routes, capability gate, judge, and request ce
     ['us.amazon.nova-micro-v1:0', 'us.amazon.nova-lite-v1:0'],
   );
   assert.equal(prepared.judge.id, 'bedrock:converse:us.openai.gpt-6.1-sol');
-  assert.equal(prepared.plannedRequests, 60);
+  assert.equal(prepared.plannedRequests, 70);
 
   assert.throws(
     () => prepareConfig(options('--live', '--prepare-only', '--models', 'qwen3-32b')),

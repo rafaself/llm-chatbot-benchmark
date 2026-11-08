@@ -32,7 +32,7 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     tests.length *
     (options.live ? selected.length : 1) *
     options.repeat *
-    (options.maxTurns + 3) *
+    (options.maxTurns + 1 + 3) *
     (options.retries + 1);
   if (plannedRequests > options.maxRequests)
     throw new Error(

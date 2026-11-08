@@ -5,9 +5,12 @@ is a stable contract for every candidate, not a place to paste a golden answer.
 Tool descriptions in `src/tools.ts` carry the routing detail. The policy corpus
 stays in the search tool.
 
-The prompt assumes the default `--max-turns 3`: two tool steps, then an answer.
-A reply that ends on a tool call is unfinished. Change the prompt and this note
-together if that default changes.
+The runtime allows three model steps by default. If those steps end on a tool
+call, one more model call answers from the tool results written out as data.
+Bedrock removes tool results from a request that does not offer tools, so the
+answer call does not disable tools inside the same conversation. A reply that
+still ends without text is unfinished. The request ceiling includes that
+possible extra call.
 
 ## Contracts
 

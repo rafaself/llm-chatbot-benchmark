@@ -85,6 +85,15 @@ test('the three previously failing labels match the policy text', () => {
   );
   assert.match(prompt, /ask for every such fact/);
   assert.doesNotMatch(prompt, /ask one concise question/);
+  const partialReturn = turns.find((turn) => turn.vars.id === 'SON-MHP-003-T01');
+  assert.ok(partialReturn);
+  assert.deepEqual(partialReturn.vars.relevant_sections, ['16.4']);
+  const partial = policy.slice(
+    policy.indexOf('### 16.4.'),
+    policy.indexOf('### 16.5.'),
+  );
+  assert.match(partial, /will not retroactively charge/);
+  assert.match(partial, /price actually paid/);
 });
 
 test('the deterministic policy index is non-empty and uses stable section IDs', () => {
