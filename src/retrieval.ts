@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 export const policyPath = fileURLToPath(
-  new URL('../datasets/sonora_store_policy.md', import.meta.url),
+  new URL('../evaluation/datasets/sonora_store_policy.md', import.meta.url),
 );
 
 export interface PolicyDocument {

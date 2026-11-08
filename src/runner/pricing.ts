@@ -1,4 +1,4 @@
-import prices from '../../config/prices.json' with { type: 'json' };
+import prices from '../../evaluation/config/prices.json' with { type: 'json' };
 
 interface TokenRates {
   input: number;

@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { load } from 'js-yaml';
 import type { ProviderOptions, UnifiedConfig } from 'promptfoo';
-import registry from '../../config/models.json' with { type: 'json' };
+import registry from '../../evaluation/config/models.json' with { type: 'json' };
 import { loadDataset } from '../dataset.ts';
 import type { RunnerOptions } from './cli.ts';
 
@@ -43,10 +43,10 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     );
 
   const config = load(
-    readFileSync(join(ROOT, 'promptfooconfig.yaml'), 'utf8'),
+    readFileSync(join(ROOT, 'evaluation/promptfooconfig.yaml'), 'utf8'),
   ) as UnifiedConfig;
   const adapter = 'file://' + join(ROOT, 'src/chatbot.ts');
-  config.prompts = ['file://' + join(ROOT, 'prompts/chat.json')];
+  config.prompts = ['file://' + join(ROOT, 'evaluation/prompts/chat.json')];
   config.tests = tests;
   config.providers = options.live
     ? selected.map((key): ProviderOptions => {
@@ -110,19 +110,23 @@ export function prepareConfig(options: RunnerOptions): PreparedRun {
     };
   }
   if (!config.defaultTest || typeof config.defaultTest === 'string')
-    throw new Error('Expected inline defaultTest criteria in promptfooconfig.yaml');
+    throw new Error(
+      'Expected inline defaultTest criteria in evaluation/promptfooconfig.yaml',
+    );
   // A generated result directory is not the repository root: use absolute assertion scripts.
   const defaultAssertions = config.defaultTest.assert ?? [];
   config.defaultTest.assert = defaultAssertions.map((assertion) => {
     if (
       assertion.type !== 'javascript' ||
       typeof assertion.value !== 'string' ||
-      !assertion.value.startsWith('file://src/')
+      !assertion.value.startsWith('file://../src/')
     )
       return assertion;
     return {
       ...assertion,
-      value: 'file://' + join(ROOT, assertion.value.slice('file://'.length)),
+      value:
+        'file://' +
+        join(ROOT, assertion.value.slice('file://../'.length)),
     };
   });
   config.defaultTest = {

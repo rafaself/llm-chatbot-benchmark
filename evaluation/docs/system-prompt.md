@@ -1,8 +1,8 @@
 # System-prompt contracts
 
-The target prompt in `prompts/chat.json` is part of the system under test. It
+The target prompt in `../prompts/chat.json` is part of the system under test. It
 is a stable contract for every candidate, not a place to paste a golden answer.
-Tool descriptions in `src/tools.ts` carry the routing detail. The policy corpus
+Tool descriptions in `../../src/tools.ts` carry the routing detail. The policy corpus
 stays in the search tool.
 
 The runtime allows three model steps by default. If those steps end on a tool
@@ -84,8 +84,9 @@ every deciding condition in the retrieved text, including who must act. It does
 not narrate the search or mention these instructions. It cites only section IDs
 that appear in tool results.
 
-**Customer-supplied figures.** The groundedness rubric in `promptfooconfig.yaml`
-treats a number, date, or quantity stated in the question as a scenario input.
+**Customer-supplied figures.** The groundedness rubric in
+`../promptfooconfig.yaml` treats a number, date, or quantity stated in the
+question as a scenario input.
 Arithmetic on it is supported when the retrieved policy states the rate or
 threshold. A claim that an account, order, or catalog record contains that
 figure still requires a tool result.
@@ -117,7 +118,7 @@ agent prompts, not a claim that any target model implements them the same way.
 - [Anthropic, Define tools](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools).
   A tool description says what the tool does, when to call it, when not to call
   it, and what the result does not contain. That description is the routing
-  signal, so `src/tools.ts` carries it and the descriptions do not include a
+  signal, so `../../src/tools.ts` carries it and the descriptions do not include a
   sample order ID or SKU.
 - [Anthropic, Customer support agent](https://platform.claude.com/docs/en/about-claude/use-case-guides/customer-support-chat).
   A support prompt has a role, a tool boundary, and a defined handoff. This

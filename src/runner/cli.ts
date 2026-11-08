@@ -44,7 +44,7 @@ function createProgram(region: string) {
     )
     .option('--allow-paid', 'Opt in to this paid invocation')
     .option('--prepare-only', 'Write resolved config without API calls')
-    .option('--models <keys...>', 'Keys from config/models.json')
+    .option('--models <keys...>', 'Keys from evaluation/config/models.json')
     .option('--category <names...>', 'Select scenario categories')
     .option('--dataset <path>', 'JSONL scenarios (live: development; offline: smoke)')
     .option('--output <path>', 'New result directory')

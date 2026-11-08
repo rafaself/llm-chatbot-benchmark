@@ -18,7 +18,7 @@ SQLite operational fixtures, AI SDK tool calling and Promptfoo grading.
    complete development dataset. Review correctness, groundedness, tool
    arguments and evidence coverage per category. Never silently change gold
    expectations to turn a failing case green.
-5. Keep `datasets/golden/heldout.jsonl` reserved for release-candidate
+5. Keep `evaluation/datasets/golden/heldout.jsonl` reserved for release-candidate
    checks. Do not tune the retriever/prompts using held-out case-level failures.
    Public repository holdouts are not truly blind.
 6. Promote new or revised golden labels only after independent review.

@@ -8,5 +8,5 @@ __pycache__/
 .env.*
 !.env.example
 .promptfoo/
-results/*/
-!results/examples/
+evaluation/results/*/
+!evaluation/results/examples/

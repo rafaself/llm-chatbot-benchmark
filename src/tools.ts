@@ -5,7 +5,7 @@ import { z } from 'zod';
 import { searchPolicy, type PolicyDocument } from './retrieval.ts';
 
 const databasePath = fileURLToPath(
-  new URL('../datasets/sonora_store_database.sqlite', import.meta.url),
+  new URL('../evaluation/datasets/sonora_store_database.sqlite', import.meta.url),
 );
 let database: DatabaseSync | undefined;
 const getDatabase = () =>

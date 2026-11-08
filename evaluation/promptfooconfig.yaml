@@ -4,19 +4,19 @@ prompts:
   - file://prompts/chat.json
 
 providers:
-  - id: file://src/chatbot.ts
+  - id: file://../src/chatbot.ts
     label: offline-fixture
     config:
       mode: smoke
 
-tests: file://src/dataset.ts
+tests: file://../src/dataset.ts
 
 defaultTest:
   options:
     # Gold lists are data, not Promptfoo scenario permutations.
     disableVarExpansion: true
     provider:
-      id: file://src/smoke.ts
+      id: file://../src/smoke.ts
 
   assert:
     - type: llm-rubric
@@ -77,12 +77,12 @@ defaultTest:
     - type: javascript
       metric: tool_accuracy
       weight: 2
-      value: file://src/assertions.cjs:toolSelection
+      value: file://../src/assertions.cjs:toolSelection
 
     - type: javascript
       metric: evidence_recall
       weight: 2
-      value: file://src/assertions.cjs:evidenceRecall
+      value: file://../src/assertions.cjs:evidenceRecall
 
 evaluateOptions:
   maxConcurrency: 1

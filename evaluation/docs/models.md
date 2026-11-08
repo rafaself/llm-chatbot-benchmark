@@ -38,12 +38,12 @@ The default grading model is separately configured as `bedrock:converse:us.opena
   replay, and retries. The benchmark no longer patches private Promptfoo hooks or
   manually replays tool exchanges. This removes the old parser-specific reasoning
   restriction; support for each exact model remains unverified.
-- Model sampling constraints remain in `config/models.json`. Haiku's disabled
+- Model sampling constraints remain in `../config/models.json`. Haiku's disabled
   thinking setting is passed through AI SDK's Bedrock provider options. These
   settings do not establish equal reasoning budgets across architectures.
 - API/access failures remain errors, not proof that a model lacks tool support.
-- `stats.json` prices assistant and judge tokens from `config/prices.json`.
-  Rates cover every model in `config/models.json` at US East Standard
+- `stats.json` prices assistant and judge tokens from `../config/prices.json`.
+  Rates cover every model in `../config/models.json` at US East Standard
   on-demand prices. A `us.` profile uses that profile's published rate.
   GPT-6 long-context rates start above 272,000 prompt tokens. Haiku 5.5
   uses its own 100,000-token tier. The file is a list-price estimate, not

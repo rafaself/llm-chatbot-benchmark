@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 
 export default defineConfig([
   {
-    ignores: ['node_modules/**', 'results/**', '.promptfoo/**'],
+    ignores: ['node_modules/**', 'evaluation/results/**', '.promptfoo/**'],
   },
   {
     files: ['src/**/*.ts', 'tests/runner/**/*.ts'],

@@ -1,4 +1,4 @@
 node_modules/
-results/
+evaluation/results/
 .promptfoo/
 package-lock.json

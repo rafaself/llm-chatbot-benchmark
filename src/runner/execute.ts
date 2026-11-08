@@ -26,7 +26,12 @@ export function executeRun(
 ) {
   const output = resolve(
     options.output ??
-      join(ROOT, 'results', new Date().toISOString().replaceAll(':', '-')),
+      join(
+        ROOT,
+        'evaluation',
+        'results',
+        new Date().toISOString().replaceAll(':', '-'),
+      ),
   );
   mkdirSync(resolve(output, '..'), { recursive: true });
   mkdirSync(output); // Exclusive create: never overwrite an existing run.

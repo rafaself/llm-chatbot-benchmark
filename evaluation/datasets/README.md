@@ -78,7 +78,7 @@ through Promptfoo `_conversation`. Keep references grounded in the versioned
 policy and SQLite fixture, and have another reviewer check new or changed gold
 labels before using results for decisions.
 
-`datasets/context-session.jsonl` is the three-turn validation session
+`context-session.jsonl` is the three-turn validation session
 `SON-CTX-001`: look up order `SON-1042`, repeat its recorded `processing`
 status, then give the Section 7.7 pickup hold and the consequence if the
 customer does not collect it. The same session is appended to `smoke.jsonl`

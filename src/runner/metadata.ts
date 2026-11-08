@@ -19,11 +19,11 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
           : [];
     });
   const sources = [
-    'promptfooconfig.yaml',
+    'evaluation/promptfooconfig.yaml',
     'src/assertions.cjs',
-    'config/models.json',
-    'config/prices.json',
-    'prompts/chat.json',
+    'evaluation/config/models.json',
+    'evaluation/config/prices.json',
+    'evaluation/prompts/chat.json',
     'package.json',
     'package-lock.json',
     ...sourceFiles('src'),
@@ -54,9 +54,13 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     versions: { promptfoo: pkg.devDependencies.promptfoo, ...pkg.dependencies },
     source_hashes: {
       dataset: hash(readFileSync(resolve(options.dataset))),
-      policy: hash(readFileSync(join(ROOT, 'datasets/sonora_store_policy.md'))),
+      policy: hash(
+        readFileSync(join(ROOT, 'evaluation/datasets/sonora_store_policy.md')),
+      ),
       operational_database: hash(
-        readFileSync(join(ROOT, 'datasets/sonora_store_database.sqlite')),
+        readFileSync(
+          join(ROOT, 'evaluation/datasets/sonora_store_database.sqlite'),
+        ),
       ),
       ...Object.fromEntries(
         sources.map((file) => [file, hash(readFileSync(join(ROOT, file)))]),

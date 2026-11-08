@@ -42,19 +42,19 @@ const rowSchema = z.strictObject({
 });
 
 export const developmentDatasetPath = fileURLToPath(
-  new URL('../datasets/golden/development.jsonl', import.meta.url),
+  new URL('../evaluation/datasets/golden/development.jsonl', import.meta.url),
 );
 export const heldoutDatasetPath = fileURLToPath(
-  new URL('../datasets/golden/heldout.jsonl', import.meta.url),
+  new URL('../evaluation/datasets/golden/heldout.jsonl', import.meta.url),
 );
 export const smokeDatasetPath = fileURLToPath(
-  new URL('../datasets/smoke.jsonl', import.meta.url),
+  new URL('../evaluation/datasets/smoke.jsonl', import.meta.url),
 );
 export const contextSessionPath = fileURLToPath(
-  new URL('../datasets/context-session.jsonl', import.meta.url),
+  new URL('../evaluation/datasets/context-session.jsonl', import.meta.url),
 );
 export const scopeDatasetPath = fileURLToPath(
-  new URL('../datasets/golden/scope.jsonl', import.meta.url),
+  new URL('../evaluation/datasets/golden/scope.jsonl', import.meta.url),
 );
 
 export interface EvalTurn {

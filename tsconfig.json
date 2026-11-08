@@ -20,5 +20,5 @@
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "tests/runner/**/*.ts"],
-  "exclude": ["node_modules", "results"]
+  "exclude": ["node_modules", "evaluation/results"]
 }
