@@ -15,6 +15,8 @@ be connected to real customer data.
   the SQLite fixture.
 - `golden/development.jsonl` — 55 draft-labeled cases for development and
   iteration.
+- `golden/scope.jsonl` — role-boundary cases. These are not part of the
+  development or held-out sets. Run this file on its own.
 - `golden/heldout.jsonl` — 9 cases reserved for release-candidate evaluation.
   The file is public, so it is an organizational holdout rather than a blind
   test set.

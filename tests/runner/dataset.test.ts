@@ -6,6 +6,7 @@ import {
   contextSessionPath,
   developmentDatasetPath,
   heldoutDatasetPath,
+  scopeDatasetPath,
   smokeDatasetPath,
 } from '../../src/dataset.ts';
 import { policyPath, policySectionIds, searchPolicy } from '../../src/retrieval.ts';
@@ -94,6 +95,38 @@ test('the three previously failing labels match the policy text', () => {
   );
   assert.match(partial, /will not retroactively charge/);
   assert.match(partial, /price actually paid/);
+});
+
+test('scope cases stay outside the development set and cover a role boundary', () => {
+  const scope = loadDataset(scopeDatasetPath);
+  assert.equal(sessionIds(scope).size, 5);
+  assert.equal(scope.length, 8);
+  const developmentIds = new Set(
+    loadDataset(developmentDatasetPath).map((testCase) => testCase.vars.id),
+  );
+  for (const testCase of scope) {
+    assert.equal(testCase.metadata.category, 'robustness');
+    assert.equal(testCase.vars.session_id.startsWith('SON-SCP-'), true);
+    assert.equal(developmentIds.has(testCase.vars.id), false);
+  }
+  const drifted = scope.filter(
+    (testCase) => testCase.metadata.conversationId === 'SON-SCP-003',
+  );
+  assert.deepEqual(
+    drifted.map((testCase) => testCase.vars.turn_index),
+    [1, 2, 3],
+  );
+  assert.deepEqual(drifted[2]?.vars.expected_tools, [
+    { name: 'lookup_order', arguments: { order_id: 'SON-1042' } },
+  ]);
+  const prompt = readFileSync(
+    new URL('../../prompts/chat.json', import.meta.url),
+    'utf8',
+  );
+  assert.match(
+    prompt,
+    /only help with Sonora orders, products, policies, and store service/,
+  );
 });
 
 test('the deterministic policy index is non-empty and uses stable section IDs', () => {

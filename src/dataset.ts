@@ -53,6 +53,9 @@ export const smokeDatasetPath = fileURLToPath(
 export const contextSessionPath = fileURLToPath(
   new URL('../datasets/context-session.jsonl', import.meta.url),
 );
+export const scopeDatasetPath = fileURLToPath(
+  new URL('../datasets/golden/scope.jsonl', import.meta.url),
+);
 
 export interface EvalTurn {
   vars: {
