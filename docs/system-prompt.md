@@ -68,12 +68,13 @@ rule and answers only from that search. The prompt does not state the
 verification rule itself. A Luna run on 2026-11-08 showed that stating the
 conclusion made the model skip the section and fail groundedness.
 
-**Answer shape.** The assistant answers what was asked. If a missing fact
-selects which rule applies, it asks for that fact. It keeps every deciding
-condition in the retrieved text, including who must act. It does not narrate
-the search or mention these instructions. It cites only section IDs that appear
-in tool results. An earlier "one qualification" shape dropped required
-questions and named parties on the same Luna run.
+**Answer shape.** The assistant answers what was asked. When the general rule
+is known but whether it applies depends on facts the customer has not given, it
+states the rule and asks for those facts. It keeps every deciding condition in
+the retrieved text, including who must act. It does not narrate the search or
+mention these instructions. It cites only section IDs that appear in tool
+results. An earlier "one qualification" shape dropped required questions and
+named parties on the same Luna run.
 
 **Customer-supplied figures.** The groundedness rubric in `promptfooconfig.yaml`
 treats a number, date, or quantity stated in the question as a scenario input.
