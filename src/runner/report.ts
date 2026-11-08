@@ -5,6 +5,9 @@ export interface ReportInput {
   summary: CostSummary;
   sessions: SessionScore[];
   durationMs?: number | null;
+  benchmarkId: string;
+  benchmarkVersion: string;
+  runId: string;
 }
 
 function cell(value: number | null | undefined) {
@@ -84,6 +87,14 @@ export function renderBenchmarkReport(input: ReportInput) {
     'List-price estimate checked ' +
       summary.checked_on +
       '. Not an invoice. Assistant rows are the model under test. Judge rows are grading overhead.',
+    '',
+    'Benchmark: `' +
+      input.benchmarkId +
+      '` v`' +
+      input.benchmarkVersion +
+      '` · run `' +
+      input.runId +
+      '`.',
     '',
     '## Results',
     '',

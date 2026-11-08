@@ -6,7 +6,7 @@ import {
   readFileSync,
   writeFileSync,
 } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { basename, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { dump } from 'js-yaml';
 import type { RunnerOptions } from './cli.ts';
@@ -33,12 +33,14 @@ export function executeRun(
         new Date().toISOString().replaceAll(':', '-'),
       ),
   );
+  const runId = basename(output);
+  const runMetadata = { ...metadata, run_id: runId };
   mkdirSync(resolve(output, '..'), { recursive: true });
   mkdirSync(output); // Exclusive create: never overwrite an existing run.
   const save = (name: string, value: unknown) =>
     writeFileSync(join(output, name), JSON.stringify(value, null, 2) + '\n');
   writeFileSync(join(output, 'config.yaml'), dump(prepared.config));
-  save('metadata.json', metadata);
+  save('metadata.json', runMetadata);
   const sessionsPrepared = sessionCount(prepared.tests);
   console.log(
     'Prepared ' +
@@ -93,7 +95,16 @@ export function executeRun(
   const rows = parsed ? readEvalRows(parsed) : [];
   const sessions = rows.length ? scoreSessions(rows) : [];
   const summary = parsed ? summarizeCosts(rows, prepared.judge.id) : undefined;
-  if (summary) save('stats.json', summary);
+  const durationMs = parsed ? durationFromPromptfooResult(parsed) : null;
+  if (summary) {
+    save('stats.json', {
+      ...summary,
+      benchmark_id: runMetadata.benchmark_id,
+      benchmark_version: runMetadata.benchmark_version,
+      run_id: runId,
+      wall_clock_ms: durationMs,
+    });
+  }
   if (sessions.length) {
     save('sessions.json', {
       success: sessions.every((session) => session.success),
@@ -103,7 +114,7 @@ export function executeRun(
   const sessionFailed = sessions.some((session) => !session.success);
   const processExitCode = result.status ?? 1;
   save('metadata.json', {
-    ...metadata,
+    ...runMetadata,
     finished_at: new Date().toISOString(),
     process_exit_code: processExitCode,
     startup_error: result.error?.message,
@@ -119,7 +130,10 @@ export function executeRun(
     const report = renderBenchmarkReport({
       summary,
       sessions,
-      durationMs: durationFromPromptfooResult(parsed),
+      durationMs,
+      benchmarkId: String(runMetadata.benchmark_id),
+      benchmarkVersion: String(runMetadata.benchmark_version),
+      runId,
     });
     writeFileSync(join(output, 'stats.md'), report);
     console.log(renderBenchmarkConsoleReport(report));

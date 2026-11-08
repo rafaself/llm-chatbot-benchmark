@@ -3,6 +3,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import pkg from '../../package.json' with { type: 'json' };
+import benchmark from '../../evaluation/benchmark.json' with { type: 'json' };
 import type { RunnerOptions } from './cli.ts';
 import { ROOT, sessionCount, type PreparedRun } from './config.ts';
 
@@ -20,6 +21,7 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
     });
   const sources = [
     'evaluation/promptfooconfig.yaml',
+    'evaluation/benchmark.json',
     'src/assertions.cjs',
     'evaluation/config/models.json',
     'evaluation/config/prices.json',
@@ -40,6 +42,8 @@ export function createMetadata(options: RunnerOptions, prepared: PreparedRun) {
         : 'fixture',
     git_revision: git('rev-parse', 'HEAD') || null,
     git_dirty: Boolean(git('status', '--porcelain')),
+    benchmark_id: benchmark.id,
+    benchmark_version: benchmark.version,
     models: options.live ? prepared.selected : ['offline-fixture'],
     providers: prepared.config.providers,
     judge: prepared.judge,
