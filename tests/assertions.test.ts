@@ -3,7 +3,7 @@ import { createRequire } from 'node:module';
 import test from 'node:test';
 
 const require = createRequire(import.meta.url);
-const assertions = require('../../src/assertions.cjs') as {
+const assertions = require('../src/assertions.cjs') as {
   toolSelection: (output: unknown, context: unknown) => { pass: boolean };
   evidenceRecall: (
     output: unknown,

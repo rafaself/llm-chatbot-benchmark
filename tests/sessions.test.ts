@@ -4,7 +4,7 @@ import {
   conversationPropagationFailures,
   scoreSessions,
   type SessionTurnResult,
-} from '../../src/runner/sessions.ts';
+} from '../src/runner/sessions.ts';
 
 function turn(
   conversationId: string,

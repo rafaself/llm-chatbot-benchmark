@@ -7,7 +7,7 @@ export default defineConfig([
     ignores: ['node_modules/**', 'evaluation/results/**', '.promptfoo/**'],
   },
   {
-    files: ['src/**/*.ts', 'tests/runner/**/*.ts'],
+    files: ['src/**/*.ts', 'tests/*.test.ts'],
     extends: [js.configs.recommended, tseslint.configs.strict],
     rules: {
       // TypeScript checks undefined names using the project's configured libs.

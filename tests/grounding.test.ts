@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import ChatbotProvider from '../../src/chatbot.ts';
+import ChatbotProvider from '../src/chatbot.ts';
 
 test('grounding keeps this turn separate and includes earlier tool evidence', async () => {
   const provider = new ChatbotProvider({ config: { mode: 'smoke' } });

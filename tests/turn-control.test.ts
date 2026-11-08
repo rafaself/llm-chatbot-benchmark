@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { needsAnswerRecovery } from '../../src/chatbot.ts';
+import { needsAnswerRecovery } from '../src/chatbot.ts';
 import {
   missingIdentifierReply,
   missingRequiredIdentifier,
   resolveTurn,
-} from '../../src/tools.ts';
+} from '../src/tools.ts';
 
 test('identifier validation rejects blank lookups and accepts real ones', () => {
   assert.equal(missingRequiredIdentifier('lookup_order', { order_id: '' }), true);

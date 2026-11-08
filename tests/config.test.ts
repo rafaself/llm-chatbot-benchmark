@@ -3,10 +3,10 @@ import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
-import { parseOptions } from '../../src/runner/cli.ts';
-import { prepareConfig } from '../../src/runner/config.ts';
-import { executeRun } from '../../src/runner/execute.ts';
-import { createMetadata } from '../../src/runner/metadata.ts';
+import { parseOptions } from '../src/runner/cli.ts';
+import { prepareConfig } from '../src/runner/config.ts';
+import { executeRun } from '../src/runner/execute.ts';
+import { createMetadata } from '../src/runner/metadata.ts';
 
 const options = (...args: string[]) => parseOptions(args, {});
 const temporaryDirectory = () => mkdtempSync(join(tmpdir(), 'benchmark-runner-'));

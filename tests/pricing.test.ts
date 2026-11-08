@@ -1,8 +1,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import registry from '../../evaluation/config/models.json' with { type: 'json' };
-import prices from '../../evaluation/config/prices.json' with { type: 'json' };
-import { judgeRoute, priceUsage, summarizeCosts } from '../../src/runner/pricing.ts';
+import registry from '../evaluation/config/models.json' with { type: 'json' };
+import prices from '../evaluation/config/prices.json' with { type: 'json' };
+import { judgeRoute, priceUsage, summarizeCosts } from '../src/runner/pricing.ts';
 
 test('every benchmark model has a US East Bedrock rate', () => {
   for (const model of Object.values(registry.models)) {

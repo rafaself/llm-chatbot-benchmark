@@ -11,12 +11,12 @@
     "benchmark": "node src/run.ts",
     "preview": "node src/run.ts --live --prepare-only",
     "smoke": "node src/run.ts --smoke",
-    "lint": "eslint src tests/runner",
-    "format": "prettier --write \"{src,tests/runner}/**/*.ts\" \"*.json\" \"*.yaml\" \"evaluation/{config,prompts}/*.json\" \"evaluation/*.yaml\"",
-    "format:check": "prettier --check \"{src,tests/runner}/**/*.ts\" \"*.json\" \"*.yaml\" \"evaluation/{config,prompts}/*.json\" \"evaluation/*.yaml\"",
+    "lint": "eslint src tests",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/*.test.ts\" \"*.json\" \"*.yaml\" \"evaluation/{config,prompts}/*.json\" \"evaluation/*.yaml\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"tests/*.test.ts\" \"*.json\" \"*.yaml\" \"evaluation/{config,prompts}/*.json\" \"evaluation/*.yaml\"",
     "typecheck": "tsc --noEmit",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
-    "test": "node --experimental-strip-types --test tests/runner/*.test.ts"
+    "test": "node --experimental-strip-types --test tests/*.test.ts"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

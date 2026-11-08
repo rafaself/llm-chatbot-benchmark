@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { parseOptions } from '../../src/runner/cli.ts';
+import { parseOptions } from '../src/runner/cli.ts';
 
 test('CLI preserves safe defaults and model selection options', () => {
   const options = parseOptions([], {});

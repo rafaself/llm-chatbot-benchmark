@@ -3,7 +3,7 @@ import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
-import { loadEnvFile } from '../../src/runner/env.ts';
+import { loadEnvFile } from '../src/runner/env.ts';
 
 test('dotenv file fills unset AWS variables and preserves the shell', () => {
   const directory = mkdtempSync(join(tmpdir(), 'benchmark-env-'));

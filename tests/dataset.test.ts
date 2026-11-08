@@ -8,8 +8,8 @@ import {
   heldoutDatasetPath,
   scopeDatasetPath,
   smokeDatasetPath,
-} from '../../src/dataset.ts';
-import { policyPath, policySectionIds, searchPolicy } from '../../src/retrieval.ts';
+} from '../src/dataset.ts';
+import { policyPath, policySectionIds, searchPolicy } from '../src/retrieval.ts';
 
 function sessionIds(cases: ReturnType<typeof loadDataset>) {
   return new Set(cases.map((testCase) => testCase.metadata.conversationId));
@@ -81,7 +81,7 @@ test('the three previously failing labels match the policy text', () => {
   assert.match(points, /stacking that one coupon with points/);
   assert.match(points, /does not allow a second coupon/);
   const prompt = readFileSync(
-    new URL('../../evaluation/prompts/chat.json', import.meta.url),
+    new URL('../evaluation/prompts/chat.json', import.meta.url),
     'utf8',
   );
   assert.match(prompt, /ask for every such fact/);
@@ -120,7 +120,7 @@ test('scope cases stay outside the development set and cover a role boundary', (
     { name: 'lookup_order', arguments: { order_id: 'SON-1042' } },
   ]);
   const prompt = readFileSync(
-    new URL('../../evaluation/prompts/chat.json', import.meta.url),
+    new URL('../evaluation/prompts/chat.json', import.meta.url),
     'utf8',
   );
   assert.match(
