@@ -2,9 +2,9 @@
   "schema_version": 1,
   "benchmark": {
     "id": "sonora-customer-support-e2e",
-    "version": "1.0.0"
+    "version": "0.0.1"
   },
-  "release_tag": "sonora-benchmark-v1.0.0",
+  "release_tag": "sonora-benchmark-v0.0.1",
   "run": {
     "id": "2026-11-08T16-31-21.751Z",
     "source_directory": "evaluation/results/2026-11-08T16-31-21.751Z",

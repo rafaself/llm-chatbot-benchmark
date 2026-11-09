@@ -70,18 +70,18 @@ Timestamped run output is written to the ignored
 `evaluation/results/<timestamp>/` directory. Official snapshots are stored
 separately under `evaluation/official-results/v<version>/`.
 
-**Latest official run — `2026-11-08T16-31-21.751Z` (v1.0.0):** 10 models,
+**Latest official run — `2026-11-08T16-31-21.751Z` (v0.0.1):** 10 models,
 580 attempted turns (307 passed, 271 failed, 2 provider errors), 1 h 32 min
 42 s, and an estimated combined cost of $3.869.
 
 **Winner by turn pass rate: `gpt-6-luna` — 57/58 passes (98.3%).**
 
 Scores are from the development dataset; `gpt-6.1-sol` judged every candidate,
-including itself. See the [full run summary](evaluation/official-results/v1.0.0/stats.md).
+including itself. See the [full run summary](evaluation/official-results/v0.0.1/stats.md).
 
-The first official snapshot is [v1.0.0](evaluation/official-results/v1.0.0/),
-with its [summary](evaluation/official-results/v1.0.0/stats.md) and
-[release metadata](evaluation/official-results/v1.0.0/release.json). See the
+The first official snapshot is [v0.0.1](evaluation/official-results/v0.0.1/),
+with its [summary](evaluation/official-results/v0.0.1/stats.md) and
+[release metadata](evaluation/official-results/v0.0.1/release.json). See the
 [versioning guide](evaluation/official-results/README.md) before creating a
 new official version.
 
